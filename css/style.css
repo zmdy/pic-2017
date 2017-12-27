@@ -1,0 +1,40 @@
+/*** resets 
+*{
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+***/
+
+/*** general classes 
+tr{
+  width: 85%;
+}
+
+th{
+  font-size: 1.25em;
+  color: #ddd;
+  background: #111;
+}
+
+td{
+  width: 60%;
+  text-align: center;
+  background: #ddd;
+  color: #111;
+  font-weight: bold;
+}
+
+.status_error{
+  color: #b22;
+}
+
+.status_correct{
+  color: #1a1;
+}
+***/
+
+/*** MANUAL INSERTION ***/
+#btnResch, #size, #btnCreate{
+  display: none;
+}
