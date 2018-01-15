@@ -1,40 +1,56 @@
-/*** resets 
+/*
+# ************************************ #
+# GRAPH.JS
+# 
+# This script is used to makes all
+# DOM interaction between PHP and HTML 
+#
+# It uses the bases of PHP Class 'HTMLObject'
+# to make a better and standardize connection
+#
+# METHODS
+# [$] get_data(); 
+# 
+# ************************************ #
+# This tool is licensed under GPL terms.
+#
+# Be free to:
+# [+] run
+# [+] study
+# [+] change
+# [+] improve
+# [+] redistribute
+# [+] share
+# [+] and whatever you want to!
+#
+# But never forget to keep it free!
+#
+# "When we speak of free software,
+# we are referring to freedom, not
+# price."
+# __ Gnu Public License 3.0 Preamble
+# 
+# ************************************ #
+# ******* @hudsonUriel
+# ******* OCT-2017
+# *******  Lamniscata_Systems_#001 
+# ************************************ #
+#
+*/
+
+/*# ****** RESETS THE NAVIGATOR ****** #*/
+
 *{
   margin: 0;
   padding: 0;
   font-family: sans-serif;
 }
-***/
 
-/*** general classes 
-tr{
-  width: 85%;
-}
-
-th{
-  font-size: 1.25em;
-  color: #ddd;
-  background: #111;
-}
-
-td{
-  width: 60%;
-  text-align: center;
-  background: #ddd;
-  color: #111;
-  font-weight: bold;
-}
-
-.status_error{
-  color: #b22;
-}
-
-.status_correct{
-  color: #1a1;
-}
-***/
-
-/*** MANUAL INSERTION ***/
-#btnResch, #size, #btnCreate{
-  display: none;
+/*# ********* CONFIGURES SVG ********* #*/
+svg{
+  padding: 1%;
+  background: #f8f8f8;
+  border: solid 0.15em #111;
+  margin-left: 1.5%;
+  margin-top: 2.5%;
 }
