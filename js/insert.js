@@ -167,8 +167,7 @@ function submitData(){
         }
     }
     
-    data = document.cookie = 'graphData='+data;
-    console.log(data);
+    data = document.cookie = 'graph_data='+data;
     window.location ='process.php';
     
     
