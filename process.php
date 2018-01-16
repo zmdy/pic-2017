@@ -49,7 +49,7 @@ $data = explode(",", $data);
 
 // to dom use
 $tag_name = 'circle';
-$class_name = 'dataClass';
+$class_name = 'dataClassSVG';
 
 // sample size
 $sample = sizeof($data);
