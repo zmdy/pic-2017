@@ -101,7 +101,7 @@ class SVG implements DrawArea, HTMLObject{
         "\n\t$this->id=document.createElementNS('$this->namespace'," .
         "'$this->tag_name');" .
         "\n\t$this->id.id='$this->id';" .
-        "\n\t$this->id.class='$this->class_name';" .
+        "\n\t$this->id.setAttribute('class', '$this->class_name')" .
         "\n\t$this->parent_element.appendChild($this->id);"
     );
   }
