@@ -38,6 +38,22 @@
 #
 */
 
+function set_data_svg(){
+  // get the points created with PHP
+  data_points = document.getElementsByClassName('dataClassSVG');
+  sample_size = graph_data.length - 1;
+  
+  for(i=0; i<sample_size; i++){
+    val = (10*i);
+    lineX = parseFloat(lineX);
+    lineY = parseFloat(lineY);
+    
+    console.log(val);
+    data_points[i].setAttribute('cx', val+lineX);
+    data_points[i].setAttribute('cy', -val+lineY);
+  }
+}
+
 function set_offset_lines(){ 
   // creates lines
   line_offset_x = document.createElementNS(svg_namespace, 'line');
@@ -77,4 +93,7 @@ function reset_offset_lines(){
   document.getElementById('offsetData').innerHTML =
       'OFFSET_DATA: offset_x = ' + offset_x + '| offset_y = ' + offset_y
     + ' | lineX = ' + lineX + ' | lineY = ' + lineY;
+  
+  // sets the points
+  set_data_svg();
 }
