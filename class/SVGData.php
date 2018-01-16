@@ -150,15 +150,39 @@ class SVGData implements DrawableObject, StatisticsObject, HTMLObject{
 
   // to_string
   public function to_dom():string {
-    
+    return(
+        "\n\n\t$this->id="
+        . "document.createElementNS('$this->namespace', '$this->tag_name');" .
+        "\n\t$this->id.id='$this->id';" .
+        "\n\t$this->id.class='$this->class_name';" .
+        
+        "\n\t$this->id.setAttribute('fill', '#88d')" .
+        "\n\t$this->id.setAttribute('r', '15')" .
+        "\n\t$this->id.setAttribute('cx', '100')" .
+        "\n\t$this->id.setAttribute('cx', '100')" .
+        
+        "\n\t$this->parent_element.appendChild($this->id);"
+    );
   }
 
   public function to_html():string {
-    
+    return(
+      "<" . $this->tag_name .
+        " id=\"" . $this->id .
+        "\" class=\"" . $this->class_name .
+      "\"/>" .
+      
+      "</" . $this->tag_name .">"  
+    );
   }
 
   public function to_string():string {
-    
+    return(
+        "TAG_NAME = " . $this->tag_name .
+        "<br/>ID = " . $this->id .
+        "<br/>CLASS = " . $this->class_name .
+        "<br/>HTML_PARENT = " . $this->parent_element
+    );
   }
 
 

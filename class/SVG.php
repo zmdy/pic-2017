@@ -92,24 +92,17 @@ class SVG implements DrawArea, HTMLObject{
       "\"/>" .
       
       "</" . $this->tag_name .">"
-        
     );
   }
   
   // implements to_dom()
   public function to_dom():string {
     return(
-        /*"\n" . $this->id . " = " . "document.createElementNS('" .
-        $this->namespace . "', '" . $this->tag_name .
-        "');
-        \n" . $this->id . ".id='" . $this->id . "';\n"*/
-        "\n<script>" . 
-          "\n\t$this->id=document.createElementNS('$this->namespace'," .
-          "'$this->tag_name');" .
-          "\n\t$this->id.id='$this->id';" .
-          "\n\t$this->id.class='$this->class_name';" .
-          "\n\t$this->parent_element.appendChild($this->id);".
-        "\n</script>"
+        "\n\t$this->id=document.createElementNS('$this->namespace'," .
+        "'$this->tag_name');" .
+        "\n\t$this->id.id='$this->id';" .
+        "\n\t$this->id.class='$this->class_name';" .
+        "\n\t$this->parent_element.appendChild($this->id);"
     );
   }
   
