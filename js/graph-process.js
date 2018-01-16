@@ -49,9 +49,9 @@ function start_graph(){
   // set general use varibles
   set_general_variables();
   
-  // set svg
-  set_svg();
-  
   // get the data
   get_data();
+  
+  // set svg
+  set_svg();
 }
