@@ -34,7 +34,15 @@
       session_start();
       
       // creates the script tag with DOM SVG
-      echo $_SESSION['svgGraph'];
+      echo "
+      \n\t<script>" .
+        $_SESSION['svgGraph'];
+        
+      for($i=0; $i< $_SESSION['sample']-1; $i++){
+        echo $_SESSION['dataGraph'][$i];
+      }
+            
+      echo "\n\t</script>\n";
       
     ?>
   </body>
