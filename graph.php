@@ -7,6 +7,7 @@
     <script src='js/utils.js'></script>
     <script src='js/graph.js'></script>
     <script src='js/svg.js'></script>
+    <script src='js/graph-controls.js'></script>
     <script src='js/graph-process.js'></script>
     <link rel='stylesheet' href='css/style.css' type='text/css'/>
   </head>
@@ -18,11 +19,11 @@
     
      <div id='conf-graph'>
         <form>
-          <p>Offset X: <input type='range' id='oX' onchange='set_offset_value()'/></p>
-          <p>Offset Y: <input type='range' id='oY' onchange='set_offset_value()'/></p>
+          <p>Offset X: <input type='range' id='oX' onchange='refresh_graph()'/></p>
+          <p>Offset Y: <input type='range' id='oY' onchange='refresh_graph()'/></p>
           
-          <p>Amplitude: <input type='number' id='amplitude'/></p>
-          <p>Lateral Amplitude: <input type='number' id='lateralAmplitude'/></p>
+          <p>Amplitude: <input type='range' id='amplitude' onchange='refresh_graph()'/></p>
+          <p>Lateral Amplitude: <input type='range' id='lateralAmplitude' onchange='refresh_graph()'/></p>
         </form>
         
         <p id='offsetData'></p>
