@@ -56,10 +56,7 @@
 #
 */
 
-function get_amplitude(){
-  amplitude = amplitude.value;
-  lateral_amplitude = lateral_amplitude.value;
-}
+
 
 function get_data(){
   graph_data = 'graph_data';
@@ -69,55 +66,12 @@ function get_data(){
                );
 }
 
-function set_amplitude(){
-  // get amplitudes elements
-  amplitude = document.getElementById('amplitude');
-  lateral_amplitude = document.getElementById('lateralAmplitude');
-  
-  // sets min and max
-  amplitude.min = lateral_amplitude.min = 0;
-  amplitude.step = lateral_amplitude.step = 10e-3;
-  amplitude.max = svg_width;
-  lateral_amplitude.max = svg_height;
-  
-  amplitude.value = amplitude.max/2;
-  lateral_amplitude.value = lateral_amplitude.max/2;
-  
-}
-
 function set_general_variables(){
   // resets general variables as -1
   offset_x = offset_y =
   svg_width = svg_height = svg_namespace =
   lineX = lineY = line_offset_x = line_offset_y = 
   amplitude = lateralAmplitude = -1;
-}
-
-function set_offset(){
-  // get offset elements
-  offset_x = document.getElementById('oX');
-  offset_y = document.getElementById('oY');
-  
-  // set min and max
-  offset_x.min = offset_y.min = 0;
-  offset_x.step = offset_y.step = 10e-3;
-  offset_x.max = svg_width;
-  offset_y.max = svg_height;
-  
-  // defines value as half
-  offset_x.value = offset_x.max / 2;
-  offset_y.value = offset_y.max / 2;
-  
-  // calls get_offset()
-  set_offset_value();
-}
-
-function set_offset_value(){
-  offset_x = document.getElementById('oX').value;
-  offset_y = document.getElementById('oY').value;
-    
-  // calls set_offset_lines
-  reset_offset_lines();
 }
 
 function set_svg(){
@@ -134,14 +88,18 @@ function set_svg(){
   
   // sets the graph controls
   set_amplitude();
-  get_amplitude();
   
   // sets the offset
-  set_offset();  
+  set_offset(); 
   
-
+  // calls get_offset()
+  refresh_graph();
   
-
+  // sets the points
+  set_data_svg();
+  
+  // shows graph_status
+ // show_graph_status();
 }
 
 function show_graph_status(){
