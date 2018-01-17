@@ -48,7 +48,6 @@ function set_data_svg(){
     lineX = parseFloat(lineX);
     lineY = parseFloat(lineY);
     
-    console.log(val);
     data_points[i].setAttribute('cx', val+lineX);
     data_points[i].setAttribute('cy', -val+lineY);
   }
@@ -88,12 +87,10 @@ function reset_offset_lines(){
   line_offset_y.setAttribute('x2', svg_width);
   line_offset_y.setAttribute('y1', lineY);
   line_offset_y.setAttribute('y2', lineY);
-
-  // shows offset_data
-  document.getElementById('offsetData').innerHTML =
-      'OFFSET_DATA: offset_x = ' + offset_x + '| offset_y = ' + offset_y
-    + ' | lineX = ' + lineX + ' | lineY = ' + lineY;
   
   // sets the points
   set_data_svg();
+  
+  // show graph
+  show_graph_status();
 }

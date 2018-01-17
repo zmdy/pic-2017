@@ -56,20 +56,23 @@
 #
 */
 
+function get_amplitude(){
+  amplitude = amplitude.value;
+  lateral_amplitude = lateral_amplitude.value;
+}
+
 function get_data(){
   graph_data = 'graph_data';
   
   graph_data = parse_float(
                 get_cookie(graph_data)
                );
-             
-  document.getElementById('graphData').innerHTML = 'DATA: ' + graph_data;
 }
 
 function set_amplitude(){
   // get amplitudes elements
-  amplitude = document.getElementById('ampl');
-  lateral_amplitude = document.getElementById('latAmpl');
+  amplitude = document.getElementById('amplitude');
+  lateral_amplitude = document.getElementById('lateralAmplitude');
   
   // sets min and max
   amplitude.min = lateral_amplitude.min = 0;
@@ -77,13 +80,17 @@ function set_amplitude(){
   amplitude.max = svg_width;
   lateral_amplitude.max = svg_height;
   
+  amplitude.value = amplitude.max/2;
+  lateral_amplitude.value = lateral_amplitude.max/2;
+  
 }
 
 function set_general_variables(){
   // resets general variables as -1
   offset_x = offset_y =
   svg_width = svg_height = svg_namespace =
-  lineX = lineY = line_offset_x = line_offset_y = -1;
+  lineX = lineY = line_offset_x = line_offset_y = 
+  amplitude = lateralAmplitude = -1;
 }
 
 function set_offset(){
@@ -125,7 +132,28 @@ function set_svg(){
   // get namespace
   svg_namespace = 'http://www.w3.org/2000/svg';
   
+  // sets the graph controls
+  set_amplitude();
+  get_amplitude();
+  
   // sets the offset
   set_offset();  
+  
+
+  
+
 }
 
+function show_graph_status(){
+  // shows offset_data
+  document.getElementById('offsetData').innerHTML =
+      'OFFSET_DATA: offset_x = ' + offset_x + '| offset_y = ' + offset_y
+    + ' | lineX = ' + lineX + ' | lineY = ' + lineY;
+  
+  // shows graph controls
+  document.getElementById('graphControl').innerHTML = 'GRAPH_CONTROL: ' +
+    'amplitude = ' + amplitude + ' | lateralAmplitude = ' + lateral_amplitude;
+  
+  // shows data
+  document.getElementById('graphData').innerHTML = 'DATA: ' + graph_data;
+}
