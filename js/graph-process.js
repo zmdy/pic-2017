@@ -55,3 +55,28 @@ function start_graph(){
   // set svg
   set_svg();
 }
+
+function refresh_graph(){
+  /* os controles do gráfico são:
+  #|-> amplitude
+  #|-> amplitude_lateral
+  #|
+  #| offsets
+   
+  */
+  
+  // get offsets
+  set_offset_value();
+  
+  // resets the offset lines
+  reset_offset_lines();
+  
+  // set data in the graph
+  set_data_svg();
+  
+    // get the amplitudes
+  set_amplitude_value();
+  
+  // show graph status
+  show_graph_status();
+}
