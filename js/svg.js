@@ -45,6 +45,7 @@ function set_data_svg(){
   
   for(i=0; i<sample_size; i++){
     val = (10*i);
+    
     lineX = parseFloat(lineX);
     lineY = parseFloat(lineY);
     
@@ -61,6 +62,7 @@ function set_offset_lines(){
 
 function reset_offset_lines(){
   if (line_offset_x == -1){
+    // creates lines of reference
     set_offset_lines();
     
     // appends
@@ -87,10 +89,4 @@ function reset_offset_lines(){
   line_offset_y.setAttribute('x2', svg_width);
   line_offset_y.setAttribute('y1', lineY);
   line_offset_y.setAttribute('y2', lineY);
-  
-  // sets the points
-  set_data_svg();
-  
-  // show graph
-  show_graph_status();
 }
