@@ -3,12 +3,15 @@
   
   <head>
     <title>Arduino Graphic</title>
+    
     <meta charset='UTF-8'>
+    
     <script src='js/utils.js'></script>
     <script src='js/graph.js'></script>
-    <script src='js/svg.js'></script>
     <script src='js/graph-controls.js'></script>
+    <script src='js/svg.js'></script>
     <script src='js/graph-process.js'></script>
+    
     <link rel='stylesheet' href='css/style.css' type='text/css'/>
   </head>
   
