@@ -21,11 +21,12 @@
           <p>Offset X: <input type='range' id='oX' onchange='set_offset_value()'/></p>
           <p>Offset Y: <input type='range' id='oY' onchange='set_offset_value()'/></p>
           
-          <p>Amplitude: <input type='number' id='ampl'/></p>
-          <p>Lateral Amplitude: <input type='number' id='latAmpl'/></p>
+          <p>Amplitude: <input type='number' id='amplitude'/></p>
+          <p>Lateral Amplitude: <input type='number' id='lateralAmplitude'/></p>
         </form>
         
         <p id='offsetData'></p>
+        <p id='graphControl'></p>
         <p id='graphData'></p>
     </div>
     
