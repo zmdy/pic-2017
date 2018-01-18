@@ -84,14 +84,8 @@ function set_svg(){
   // get namespace
   svg_namespace = 'http://www.w3.org/2000/svg';
   
-  // calls get_offset()
-  refresh_graph();
-  
-  // sets the points
-  set_data_svg();
-  
-  // shows graph_status
- // show_graph_status();
+  // refresh the graph
+  refresh_graph(); 
 }
 
 function show_graph_status(){

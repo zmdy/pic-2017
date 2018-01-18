@@ -22,11 +22,11 @@
     
      <div id='conf-graph'>
         <form>
-          <p>Offset X: <input type='range' id='oX' onchange='refresh_graph()'/></p>
-          <p>Offset Y: <input type='range' id='oY' onchange='refresh_graph()'/></p>
+          <p>Offset X: <input type='range' id='oX' value=0 onchange='refresh_graph()'/></p>
+          <p>Offset Y: <input type='range' id='oY' value=0 onchange='refresh_graph()'/></p>
           
-          <p>Amplitude: <input type='range' id='amplitude' onchange='refresh_graph()'/></p>
-          <p>Lateral Amplitude: <input type='range' id='lateralAmplitude' onchange='refresh_graph()'/></p>
+          <p>Amplitude: <input type='number' id='amplitude' value=100 onchange='refresh_graph()'/></p>
+          <p>Lateral Amplitude: <input type='number' id='lateralAmplitude' value=100 onchange='refresh_graph()'/></p>
         </form>
         
         <p id='offsetData'></p>
