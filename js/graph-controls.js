@@ -48,10 +48,6 @@ function set_amplitude(){
   amplitude.step = lateral_amplitude.step = 10e-3;
   amplitude.max = svg_width;
   lateral_amplitude.max = svg_height;
-  
-  // amplitude.value = amplitude.max/2;
-  // lateral_amplitude.value = lateral_amplitude.max/2;
-  
 }
 
 function set_offset(){
@@ -64,10 +60,6 @@ function set_offset(){
   offset_x.step = offset_y.step = 10e-3;
   offset_x.max = svg_width;
   offset_y.max = svg_height;
-  
-  // defines value as half
-  // offset_x.value = offset_x.max / 2;
-  // offset_y.value = offset_y.max / 2;
 }
 
 function set_amplitude_value(){
@@ -82,4 +74,8 @@ function set_offset_value(){
   
   offset_x = offset_x.value;
   offset_y = offset_y.value;
+}
+
+function set_graph_range(){
+  console.log('GRAPH RANGE');
 }

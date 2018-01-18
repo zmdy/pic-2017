@@ -56,15 +56,7 @@ function start_graph(){
   set_svg();
 }
 
-function refresh_graph(){
-  /* os controles do gráfico são:
-  #|-> amplitude
-  #|-> amplitude_lateral
-  #|
-  #| offsets
-   
-  */
-  
+function refresh_graph(){  
   // get offsets
   set_offset_value();
   
@@ -76,6 +68,9 @@ function refresh_graph(){
   
     // get the amplitudes
   set_amplitude_value();
+  
+  // set graph ranges
+  set_graph_range();
   
   // show graph status
   show_graph_status();
