@@ -56,8 +56,6 @@
 #
 */
 
-
-
 function get_data(){
   graph_data = 'graph_data';
   
@@ -85,12 +83,6 @@ function set_svg(){
   
   // get namespace
   svg_namespace = 'http://www.w3.org/2000/svg';
-  
-  // sets the graph controls
-  set_amplitude();
-  
-  // sets the offset
-  set_offset(); 
   
   // calls get_offset()
   refresh_graph();

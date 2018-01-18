@@ -49,8 +49,8 @@ function set_amplitude(){
   amplitude.max = svg_width;
   lateral_amplitude.max = svg_height;
   
-  amplitude.value = amplitude.max/2;
-  lateral_amplitude.value = lateral_amplitude.max/2;
+  // amplitude.value = amplitude.max/2;
+  // lateral_amplitude.value = lateral_amplitude.max/2;
   
 }
 
@@ -66,16 +66,20 @@ function set_offset(){
   offset_y.max = svg_height;
   
   // defines value as half
-  offset_x.value = offset_x.max / 2;
-  offset_y.value = offset_y.max / 2;
+  // offset_x.value = offset_x.max / 2;
+  // offset_y.value = offset_y.max / 2;
 }
 
 function set_amplitude_value(){
-  amplitude = document.getElementById('amplitude').value;
-  lateral_amplitude = document.getElementById('lateralAmplitude').value;
+  set_amplitude();
+  
+  amplitude = amplitude.value;
+  lateral_amplitude = lateral_amplitude.value;
 }
 
 function set_offset_value(){
-  offset_x = document.getElementById('oX').value;
-  offset_y = document.getElementById('oY').value;
+  set_offset();
+  
+  offset_x = offset_x.value;
+  offset_y = offset_y.value;
 }
