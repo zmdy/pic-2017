@@ -28,10 +28,7 @@
           <p>Amplitude: <input type='number' id='amplitude' value=100 onchange='refresh_graph()'/></p>
           <p>Lateral Amplitude: <input type='number' id='lateralAmplitude' value=100 onchange='refresh_graph()'/></p>
         </form>
-        
-        <p id='offsetData'></p>
-        <p id='graphControl'></p>
-        <p id='graphData'></p>
+        <p id='graphStatus'></p>
     </div>
     
     <?php
