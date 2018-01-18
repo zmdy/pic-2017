@@ -69,7 +69,9 @@ function set_general_variables(){
   offset_x = offset_y =
   svg_width = svg_height = svg_namespace =
   lineX = lineY = line_offset_x = line_offset_y = 
-  amplitude = lateralAmplitude = -1;
+  amplitude = lateralAmplitude =
+  max_x_value = min_x_value = 
+  max_y_value = min_y_value = -1;
 }
 
 function set_svg(){
@@ -89,15 +91,22 @@ function set_svg(){
 }
 
 function show_graph_status(){
+  document.getElementById('graphStatus').innerHTML =
+  // shows size  
+  'SIZE: ' + svg_width + ' x ' + svg_height +
+   
   // shows offset_data
-  document.getElementById('offsetData').innerHTML =
-      'OFFSET_DATA: offset_x = ' + offset_x + '| offset_y = ' + offset_y
-    + ' | lineX = ' + lineX + ' | lineY = ' + lineY;
-  
+  ' px<br/>OFFSET_DATA: offset_x = ' + offset_x + '| offset_y = ' + offset_y
+  + ' | lineX = ' + lineX + ' | lineY = ' + lineY +
+    
   // shows graph controls
-  document.getElementById('graphControl').innerHTML = 'GRAPH_CONTROL: ' +
-    'amplitude = ' + amplitude + ' | lateralAmplitude = ' + lateral_amplitude;
+  '<br/>GRAPH_CONTROL: ' +
+  'amplitude = ' + amplitude + ' | lateralAmplitude = ' + lateral_amplitude +
   
+  // shows range  
+  '<br/>RANGE: min_x_value = ' + min_x_value + ' | max_x_value = ' + max_x_value +
+  ' | min_y_value = ' + min_y_value + ' | max_y_value = ' + max_y_value +
+    
   // shows data
-  document.getElementById('graphData').innerHTML = 'DATA: ' + graph_data;
+  '<br/>DATA: ' + graph_data;
 }
