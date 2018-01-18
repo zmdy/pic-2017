@@ -77,5 +77,14 @@ function set_offset_value(){
 }
 
 function set_graph_range(){
-  console.log('GRAPH RANGE');
+  // defines the maximum and minimum values
+  // in relation to the zero point O =  (offsetX, offsetY)
+  
+  // X-AXIS
+  min_x_value = -(lateral_amplitude * (lineX / svg_width)).toPrecision(6);
+  max_x_value = -(-lateral_amplitude - min_x_value).toPrecision(6);
+  
+  // Y-AXIS
+  max_y_value = (amplitude * (lineY / svg_height)).toPrecision(6);
+  min_y_value = -(amplitude - max_y_value).toPrecision(6);
 }
