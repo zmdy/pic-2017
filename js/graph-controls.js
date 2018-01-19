@@ -50,6 +50,13 @@ function set_amplitude(){
   lateral_amplitude.max = svg_height;
 }
 
+function set_lateral_amplitude(){
+  document.getElementById('lateralAmplitude').value =
+    (amplitude *  svg_width/svg_height ).toPrecision(6);
+  
+  refresh_graph();
+}
+
 function set_offset(){
   // get offset elements
   offset_x = document.getElementById('oX');
