@@ -26,7 +26,9 @@
           <p>Offset Y: <input type='range' id='oY' value=0 onchange='refresh_graph()'/></p>
           
           <p>Amplitude: <input type='number' id='amplitude' value=100 onchange='refresh_graph()'/></p>
-          <p>Lateral Amplitude: <input type='number' id='lateralAmplitude' value=100 onchange='refresh_graph()'/></p>
+          <p>Lateral Amplitude: <input type='number' id='lateralAmplitude' value=100 onchange='refresh_graph()'/>
+            <input type="button" id="autoAmplitude" value="Auto Calculate Value" onclick="set_lateral_amplitude()"/>
+          </p>
         </form>
         <p id='graphStatus'></p>
     </div>
