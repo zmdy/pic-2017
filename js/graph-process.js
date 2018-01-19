@@ -63,14 +63,14 @@ function refresh_graph(){
   // resets the offset lines
   reset_offset_lines();
   
-  // set data in the graph
-  set_data_svg();
-  
     // get the amplitudes
   set_amplitude_value();
   
   // set graph ranges
   set_graph_range();
+  
+  // set data in the graph
+  set_data_svg();
   
   // show graph status
   show_graph_status();
