@@ -17,10 +17,10 @@
   
   <body>
     <div id='graph'>
-
     </div>
     
      <div id='conf-graph'>
+        <p id='pointStatus'>PROPERTIES: </p>
         <form>
           <p>Offset X: <input type='range' id='oX' value=0 onchange='refresh_graph()'/></p>
           <p>Offset Y: <input type='range' id='oY' value=0 onchange='refresh_graph()'/></p>

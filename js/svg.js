@@ -52,6 +52,7 @@ function set_data_svg(){
     
     data_points[i].setAttribute('cx', p_x);
     data_points[i].setAttribute('cy', p_y);
+    data_points[i].setAttribute('onclick', 'show_point_data(this)');
   }
 }
 

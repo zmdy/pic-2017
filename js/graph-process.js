@@ -75,3 +75,8 @@ function refresh_graph(){
   // show graph status
   show_graph_status();
 }
+
+function show_point_data(point){
+  document.getElementById('pointStatus').innerHTML = 
+    "PROPERTIES: " + point.id;
+}
