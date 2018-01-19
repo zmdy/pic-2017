@@ -43,7 +43,14 @@
 *{
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Advent-ExtraLight';
+}
+
+
+/*# ****** LOADS WEB-FONTS ****** #*/
+@font-face{
+  src: url('../fonts/AdventPro-ExtraLight.woff2');
+  font-family: 'Advent-ExtraLight';
 }
 
 /*# ********* CONFIGURES SVG ********* #*/
