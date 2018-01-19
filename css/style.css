@@ -43,7 +43,7 @@
 *{
   margin: 0;
   padding: 0;
-  font-family: 'Advent-ExtraLight';
+  font-family: 'Alegreya-Light';
 }
 
 
@@ -51,6 +51,21 @@
 @font-face{
   src: url('../fonts/AdventPro-ExtraLight.woff2');
   font-family: 'Advent-ExtraLight';
+}
+
+@font-face{
+  src: url('../fonts/AdventPro-Thin.woff2');
+  font-family: 'Advent-Thin';
+}
+
+@font-face{
+  src: url('../fonts/AlegreyaSansSC-Light.woff2');
+  font-family: 'Alegreya-Light';
+}
+
+@font-face{
+  src: url('../fonts/AlegreyaSansSC-Thin.woff2');
+  font-family: 'Alegreya-Thin';
 }
 
 /*# ********* CONFIGURES SVG ********* #*/
