@@ -44,13 +44,14 @@ function set_data_svg(){
   sample_size = graph_data.length - 1;
   
   for(i=0; i<sample_size; i++){
-    val = (10*i);
-    
     lineX = parseFloat(lineX);
     lineY = parseFloat(lineY);
     
-    data_points[i].setAttribute('cx', val+lineX);
-    data_points[i].setAttribute('cy', -val+lineY);
+    p_x = parseFloat(lineX + ((i+1) * svg_width/max_x_value)).toPrecision(6);
+    p_y = parseFloat(lineY - (graph_data[i+1] * svg_height/max_y_value)).toPrecision(6);
+    
+    data_points[i].setAttribute('cx', p_x);
+    data_points[i].setAttribute('cy', p_y);
   }
 }
 
