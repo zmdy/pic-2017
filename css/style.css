@@ -68,6 +68,57 @@
   font-family: 'Alegreya-Thin';
 }
 
+
+/*# ********* GENERIC DEFINITIONS ********* #*/
+img{
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/*# ********* CONFIGURES HEADER AND FOOTER ********* #*/
+#headArea, #footArea{
+  width: 100%;
+  display: block;
+  background: #111;
+  color: #eee;
+  padding: 1.5% 0 0 1.5%;
+}
+
+#headArea{
+  margin-bottom: 1.5%;
+}
+
+#logo{
+  width: 22%;
+  padding: 1.5%;
+  display: inline-block;
+    background: #eee;
+}
+
+#menu{
+  width: 72%;
+  padding: 1.5%;
+  float: right;
+  color: #eee;
+}
+
+#menuArea{
+  font-size: 2em;
+  list-style-type: none;
+}
+
+#menuArea:active{
+  color: red;
+}
+
+.menuLink a{
+  background: #ccc;
+  color: #d00;
+  text-decoration: none;
+  display: inline;
+  float: left;
+}
+
 /*# ********* CONFIGURES SVG ********* #*/
 svg{
   padding: 1%;
