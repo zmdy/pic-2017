@@ -75,48 +75,74 @@ img{
   max-height: 100%;
 }
 
-/*# ********* CONFIGURES HEADER AND FOOTER ********* #*/
-#headArea, #footArea{
-  width: 100%;
-  display: block;
-  background: #111;
-  color: #eee;
-  padding: 1.5% 0 0 1.5%;
+a{
+  text-decoration: none;
 }
 
+header, footer{
+  width: 100%;
+  background: #111;
+  overflow: hidden;
+  color: #eee;
+}
+
+/*# ********* CONFIGURES HEADER ********* #*/
+
+/********* configures logo *********/
+
 #headArea{
-  margin-bottom: 1.5%;
+  margin-bottom: 1%;
 }
 
 #logo{
   width: 22%;
   padding: 1.5%;
   display: inline-block;
-    background: #eee;
+  
+  background: #fff;
 }
+
+/********* configures menu *********/
 
 #menu{
   width: 72%;
   padding: 1.5%;
   float: right;
   color: #eee;
+  font-size: 0.75em;
 }
 
-#menuArea{
-  font-size: 2em;
+#showMenu{
+  width: 15%;
+  top: 25%;
+  float: right;
+}
+
+#showMenuIMG{
+  width: 50%;
+  padding: 12.5% 0 12.5% 12.5%;
+  margin: 0 0 0 30%;
+}
+
+#menuContent{
+  display: inline-block;
+  width: 82%;
+  margin: 3% 0 0;
+}
+
+.menuLink{
+  text-align: center;
+  font-size: 2.0em;
   list-style-type: none;
 }
 
-#menuArea:active{
-  color: red;
-}
-
 .menuLink a{
-  background: #ccc;
-  color: #d00;
-  text-decoration: none;
+  color: #eee;
+  width: 22%;
+  padding: 1.5%;
   display: inline;
   float: left;
+  overflow: hidden;
 }
 
 /*# ********* CONFIGURES SVG ********* #*/
