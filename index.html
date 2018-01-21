@@ -5,6 +5,7 @@
     <meta charset='UTF-8'>
     <link rel='stylesheet' href='css/style.css' type='text/css'/>
     <link rel='stylesheet' href='css/styleIndex.css' type='text/css'/>
+    <script src='js/style.js'></script>
   </head>
   <body>
     <header id='headArea'>
@@ -17,12 +18,22 @@
       </div>
        
       <nav id='menu'>
-        <ol id='menuArea'>
-          <li class='menuLink'><p><a href='index.html'>Home</a></p></li>
-          <li class='menuLink'><a href='graph-start.html'>New Graphic</a></li>
-          <li class='menuLink'><a href='learn.html'>Learn</a></li>
-          <li class='menuLink'><a href='documentation.html'>Documentation</a></li>
-        </ol>
+        <div id='showMenu'>
+          <img src='img/menu.svg'
+               title='Show menu'
+               alt='Image for show the menu'
+               id='showMenuIMG'
+          />  
+        </div>
+        
+        <div id='menuContent'>
+          <ul id='menuArea'>
+            <li class='menuLink'><p><a href='index.html'>Home</a></p></li>
+            <li class='menuLink'><a href='graph-start.html'>New Graphic</a></li>
+            <li class='menuLink'><a href='learn.html'>Learn</a></li>
+            <li class='menuLink'><a href='documentation.html'>Documents</a></li>
+          </ul>
+        </div>
       </nav>
     </header>
     
@@ -38,7 +49,7 @@
           <ul id='choiceArea'>
             <li class='choice'>
               <figure class='welcome-choice'>
-                <a href="graph-start.html" class="choiceLink">
+                <a href='graph-start.html' class='choiceLink'>
                     <img src='img/graph.svg' class='choiceView' alt='Start New Graphic' title='Image with link to create new graphic'/>
                 </a>
                 <figcaption class='choiceDescription'>New Graphic</figcaption>
@@ -47,7 +58,7 @@
             
             <li class='choice'>
               <figure class='welcome-choice'>
-                <a href="documentation.html" class="choiceLink">
+                <a href='documentation.html' class='choiceLink'>
                     <img src='img/documentation.svg' class='choiceView' alt='View Documentation' title='Image with link to view documentation'/>
                 </a>
                 <figcaption class='choiceDescription'>Documentation</figcaption>
@@ -55,12 +66,12 @@
             </li>
             
             <li class='choice'>
-              <a href="#extendContent">+</a>
+              <a href='#extendContent'>+</a>
             </li>
           </ul>
         </section>
         
-        <section id="extendContent">
+        <section id='extendContent'>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
           </p>
@@ -76,7 +87,7 @@
         </section>
       </article>
       
-      <footer id="footArea">
+      <footer id='footArea'>
         <p>TEXTO GENÉRICO DE RODAPÉ</p>
       </footer>
     </main>
