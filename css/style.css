@@ -46,7 +46,6 @@
   font-family: 'Alegreya-Light';
 }
 
-
 /*# ****** LOADS WEB-FONTS ****** #*/
 @font-face{
   src: url('../fonts/AdventPro-ExtraLight.woff2');
@@ -56,6 +55,11 @@
 @font-face{
   src: url('../fonts/AdventPro-Thin.woff2');
   font-family: 'Advent-Thin';
+}
+
+@font-face{
+  src: url('../fonts/AdventPro-Regular.woff2');
+  font-family: 'Advent-Regular';
 }
 
 @font-face{
@@ -86,16 +90,22 @@ header, footer{
   color: #eee;
 }
 
+
+li{
+  list-style-type: none;
+}
+
+
 /*# ********* CONFIGURES HEADER ********* #*/
 
 /********* configures logo *********/
 
 #headArea{
-  margin-bottom: 1%;
+  margin-bottom: 3%;
 }
 
 #logo{
-  width: 22%;
+  width: 12%;
   padding: 1.5%;
   display: inline-block;
   
@@ -105,7 +115,7 @@ header, footer{
 /********* configures menu *********/
 
 #menu{
-  width: 72%;
+  width: 82%;
   padding: 1.5%;
   float: right;
   color: #eee;
@@ -113,36 +123,36 @@ header, footer{
 }
 
 #showMenu{
-  width: 15%;
-  top: 25%;
+  width: 10%;
   float: right;
 }
 
 #showMenuIMG{
   width: 50%;
-  padding: 12.5% 0 12.5% 12.5%;
-  margin: 0 0 0 30%;
 }
 
 #menuContent{
   display: inline-block;
-  width: 82%;
-  margin: 3% 0 0;
+  position: absolute;
+  width: 100%;
+  margin: 6.5% 0 0 0;
+  left: 0;
+  background: #eee;
 }
 
 .menuLink{
   text-align: center;
-  font-size: 2.0em;
-  list-style-type: none;
+  font-size: 1.75em;
 }
 
 .menuLink a{
-  color: #eee;
-  width: 22%;
-  padding: 1.5%;
+  color: #111;
+  width: 24%;
+  margin: 0.5%;
   display: inline;
   float: left;
   overflow: hidden;
+  font-family: 'Advent-Regular';
 }
 
 /*# ********* CONFIGURES SVG ********* #*/
