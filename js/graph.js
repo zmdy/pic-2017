@@ -108,5 +108,6 @@ function show_graph_status(){
   ' | min_y_value = ' + min_y_value + ' | max_y_value = ' + max_y_value +
     
   // shows data
-  '<br/>DATA: ' + graph_data;
+  '<br/>DATA: ' + graph_data +
+  '<br/>NÚMERO DE LINHAS É ' + (lateral_amplitude / document.getElementById('xSpace').value);
 }
