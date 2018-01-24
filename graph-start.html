@@ -7,41 +7,92 @@
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
   </head>
   <body>
-    <div id="welcome">
-      <h1>Start New Graphic</h1>
-      <ol>
-        <li><a href="#manual-insertion">From Manual Insertion</a></li>
-        <li><a href="#digital-insertion">Digital Insertion</a></li>
-        <!--<li><a href="manual-insertion.html">Program Insertion</a></li>
-        <li><a href="manual-insertion.html">From Archieve</a></li> !-->
-      </ol>
-    </div>
+    <header id='headArea'>
+      <nav id='menu'>
+        <div id='showMenu'>
+          <img src='img/menu.svg'
+               title='Show menu'
+               alt='Image for show the menu'
+               id='showMenuIMG'
+          />  
+        </div>
+        
+        <div id='menuContent'>
+          <ul id='menuArea'>
+            <li class='menuLink'><p><a href='index.html'>Home</a></p></li>
+            <li class='menuLink'><a href='graph-start.html'>New Graphic</a></li>
+            <li class='menuLink'><a href='learn.html'>Learn</a></li>
+            <li class='menuLink'><a href='documentation.html'>Documents</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
     
-    <div id="manual-insertion">
-      <h1>Manual Insertion</h1>
+    <main id='content'>
       
-      <div class='inputType'>
-        <p>Plase, select a type of manual insertion</p>
-        <label for='unique'><input type='radio' name='insert-type' id='unique' value='unique' onclick='hideType()'/>
-         Sequential Values</label>
+      
+      <article id='mainContent'>
+        
+        <section id='welcomeHeader'>
+          <div id='logo'>
+            <img src='img/logo-image.svg'
+                 title='Project Logo - gART_DATA'
+                 alt='Logo of the Project gArt_DATA'
+                 id='logoIMG'
+            />
+          </div>
+          <h4 class='welcomeText'>New Graphic</h4>
+        </section>
+        
+        <section id='choiceTask'>
+          <h1>Choice Graphic Inputs</h1>
+          <ol>
+            <li><a href="#manual-insertion">Manual Insertion</a></li>
+            <li><a href="#program-insertion">Program Insertion</a></li>
+            <li><a href="#archieve-insertion">From Archieve</a></li>
+          </ol>
+        </section>
+      </article>
+      
+      <article id='insertion'>
+        <section id='manual-insertion'>
+          <h1>Manual Insertion</h1>
+      
+          <div class='inputType'>
+            <p>Plase, select a type of manual insertion</p>
+            <label for='unique'><input type='radio' name='insert-type' id='unique' value='unique' onclick='hideType()'/>
+             Sequential Values</label>
 
-       <label for='match'><input type='radio' name='insert-type' id='match' value='match' onclick='hideType()'/>
-       Matching Value</label>
-      </div>
+           <label for='match'><input type='radio' name='insert-type' id='match' value='match' onclick='hideType()'/>
+           Matching Value</label>
+          </div>
 
-      <form id="manualForm" method='post' action='process.php'>
-       <input type='button' id='btnResch' value='Reschedule Type' onclick='hideType()'/>
-       <input type='number' id='size' min='0' max='100' step='1' value='0'/>
-       <input type='button' id='btnCreate' value='Create' onclick='reload()'/>
-       <input type='submit' id='btnSubmit' value='Send Data' onclick='submitData()'/>
-      </form>
-    </div>
+          <form id="manualForm" method='post' action='process.php'>
+           <input type='button' id='btnResch' value='Reschedule Type' onclick='hideType()'/>
+           <input type='number' id='size' min='0' max='100' step='1' value='0'/>
+           <input type='button' id='btnCreate' value='Create' onclick='reload()'/>
+           <input type='submit' id='btnSubmit' value='Send Data' onclick='submitData()'/>
+          </form>
+        </section>
+        
+        <section id='program-insertion'>
+          <h1>Digital Insertion</h1>
+          <p>
+            CODE HERE IN __LANGUAGE__
+          </p>
+        </section>
+        
+        <section id='archieve-insertion'>
+          <h1>From Archieve</h1>
+          <p>
+            GET __FILE__
+          </p>
+        </section>
+      </article>
+    </main>
     
-    <div id="digital-insertion">
-      <h1>Digital Insertion</h1>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
-    </div>
+    <footer id='footArea'>
+        <p>TEXTO GENÉRICO DE RODAPÉ</p>
+      </footer>
   </body>
 </html>

@@ -62,7 +62,7 @@ for($i=0; $i<$sample-1; $i++){
    $data[$i] = new SVGData;
    
    $data[$i]->set_tag_name($tag_name);
-   $data[$i]->set_id($tag_name . $i . '_' . $val . '_' . ($i+1));
+   $data[$i]->set_id($tag_name . $i  . '_' . abs($val) . '_' . ($i+1));
    $data[$i]->set_class_name($class_name);
    $data[$i]->set_parent_element($svgGraph->get_id());
    $data[$i]->set_namespace($namespace);

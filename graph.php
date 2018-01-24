@@ -9,7 +9,6 @@
     <script src='js/utils.js'></script>
     <script src='js/graph.js'></script>
     <script src='js/graph-controls.js'></script>
-    <script src='js/svg.js'></script>
     <script src='js/graph-process.js'></script>
     
     <link rel='stylesheet' href='css/style.css' type='text/css'/>
@@ -29,6 +28,9 @@
           <p>Lateral Amplitude: <input type='number' id='lateralAmplitude' value=100 onchange='refresh_graph()'/>
             <input type="button" id="autoAmplitude" value="Auto Calculate Value" onclick="set_lateral_amplitude()"/>
           </p>
+          
+          <p>xSpace: <input type='number' id='xSpace' value=100 onchange='refresh_graph()'/> </p>
+          <p>ySpace: <input type='number' id='ySpace' value=100 onchange='refresh_graph()'/> </p>
         </form>
         <p id='graphStatus'></p>
     </div>
