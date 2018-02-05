@@ -1,30 +1,37 @@
 <?php
 /*
- * DRAWABLE_OBJECT
- * This Interface represents an abstractation of
- * a generic drawable object in a given surface
 # ************************************ #
 # Interface HTML_OBJECT
 # 
 # This Interface represents an abstractation of
-# a generic HTML object with its ID, CLASS_NAME,
-# TAG_NAME and PARENT_ELEMENT
-#
-# These properties can be used with DOM
-# for the creation of dynamic pages with PHP + JS
+# a generic drawable object in a given surface
 #
 # METHODS
-# [+] set_tag_name($tag_name);
-# [+] set_id($id);
-# [+] set_class_name($class_name);
-# [+] set_parent_element($parent_element);
-#
+# [+] set_x_position($x_position);
+# [+] set_y_position($y_position);
+# [+] set_x_position($x_position);
+# [+] set_y_position($y_position);
+# [+] set_fill($fill);
+# [+] set_fill_color($fill_color);
+# [+] set_outline($outline);
+# [+] set_outline_color($outline_color);
+# [+] set_outline_width($outline_width);
+# [+] set_draw_area($draw_area);
 # [+] get_tag_name();
 # [+] get_id();
 # [+] get_class_name();
 # [+] get_parent_element();
 #
-# [+] to_html()
+# [+] get_x_position(): float;
+# [+] get_y_position(): float;
+# [+] get_fill(): bool;
+# [+] get_fill_color(): string;  
+# [+] get_outline(): bool;
+# [+] get_outline_color(): string;
+# [+] get_outline_width(): string;
+# [+] get_draw_area(): DrawArea;
+#
+# [+] to_string()
 # 
 # ************************************ #
 # This tool is licensed under GPL terms.
