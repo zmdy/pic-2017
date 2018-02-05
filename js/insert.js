@@ -18,10 +18,9 @@ window.onload =  reload;
 
 function reload(){
   // check if data are unique
-  var checked = document.getElementById('unique').checked==true ? 1 : 2,
+  var checked = document.getElementById('unique').checked==true ? 1 : 2;
       // recieves 1 if 'unique' is checked and 2 if not ('matched')
       size = document.getElementById('size').value;
-      
       
       document.getElementById('btnSubmit').style.display =
               size>0 ? 'inline-block' : 'none';
