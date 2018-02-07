@@ -4,6 +4,7 @@
     <title>Start new Graphic</title>
     <meta charset='UTF-8'>
     <script src='js/process.js'></script>
+    <script src='js/colors.js'></script>
     <link rel='stylesheet' type='text/css' href='css/style.css'/>
     <link rel='stylesheet' type='text/css' href='css/styleStart.css'/>
   </head>
@@ -67,7 +68,7 @@
 
           <form id='manualForm' method='post' action='process.php'>
            <p>Sample Size: <input type='number' id='sizeSample' min='0' step='1' value='0'/></p>
-           <input type='button' id='btnCreate' value='Create' onclick='reloadData()'/>
+           <input type='button' id='btnCreate' value='Create' onclick='createData()'/>
            <input type='submit' id='btnSubmit' value='Send Data' onclick='submitData()'/>
           </form>
           
@@ -102,7 +103,7 @@
     </main>
     
     <footer id='footArea'>
-        <p>TEXTO GENÉRICO DE RODAPÉ</p>
+        <p id='out'>TEXTO GENÉRICO DE RODAPÉ</p>
       </footer>
   </body>
 </html>
