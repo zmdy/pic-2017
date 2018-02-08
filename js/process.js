@@ -71,10 +71,24 @@ function confirm_channels(){
   
   // changes the display of #choiceTask to block
   document.getElementById('choiceTask').style.display = 'block';
+  
+  // defines firs time
+  first = null;
 }
 
 // shows the interaction area
 function shows_insertion_area(object){
+  // checks if wants excludes everything
+  if (first != null){
+    confirm_excl = confirm('Excludes objects previously created?');  
+   
+    if(confirm_excl){
+      // restes insertion areas
+      resets_insertion_areas();
+    }
+  }
+  
+  // object to shows
   shows = object.href.split('#')[1];
   genericOBJ = document.getElementsByClassName('insertionType');
   
@@ -88,6 +102,26 @@ function shows_insertion_area(object){
       genericOBJ[i].style.display = 'none';
     }
   }
+  
+  first = 0;
+}
+
+function resets_insertion_areas(){
+  /****** MANUAL INSERTION ******/
+  // tables created in manual insertion
+  tables = document.getElementsByClassName('tableData');
+  
+  // removes all tables previously created
+  for(i=0; i<tables.length; i++){
+    tables[i].parentNode.removeChild(tables[i]);
+  }
+  
+  // shows all buttons
+  document.getElementById('btnCreate').style.display = 'inline-block';
+  document.getElementById('btnSubmit').style.display = 'inline-block';
+  document.getElementById('sizeSample').value = 0;
+  
+  /****** OTHER INSERTION ******/
 }
 
 // creates table with data elements
