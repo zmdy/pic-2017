@@ -106,6 +106,7 @@ function shows_insertion_area(object){
   first = 0;
 }
 
+// resets insertion areas
 function resets_insertion_areas(){
   /****** MANUAL INSERTION ******/
   // tables created in manual insertion
@@ -179,7 +180,6 @@ function createData(){
       inputData[j] = document.createElement('input');
       inputData[j].type = 'number';
       inputData[j].className = 'inputData';
-      // inputData[j].style.background = 'rgb(' + colors[i] + ')';
       
       // creates and configures span
       spanRemove[j] = document.createElement('button');
@@ -197,8 +197,10 @@ function createData(){
   
   // don't show btnCreate
   document.getElementById('btnCreate').style.display = 'none';
+  document.getElementById('btnSubmit').style.display = 'inline-block';
 }
 
+// remove area of elements
 function removeDataElement(){
   // parent table
   parentTable = this.parentNode.parentNode.parentNode;
@@ -213,11 +215,18 @@ function removeDataElement(){
     // if confirms
     if(confirm_excl == true){
       // remove current channel
-      parentTable.parentNode.removeChild(parentTable);
+      ref =  parentTable.id.split('_')[1] - 1;
+      obj = document.getElementsByClassName('tableData')[ref];
+      
+      obj.parentNode.removeChild(obj);
+      
+      // makes tableData array 'null' in ref position
+      tableData[ref] = null;
     }
   }   
 }
 
+// remove area of elements
 function createDataElement(){
   // get parent table
   parentTable = this.parentNode.parentNode.parentNode;
@@ -242,4 +251,45 @@ function createDataElement(){
   tableTR.appendChild(tableTD);
   tableTD.appendChild(inputData);
   tableTD.appendChild(spanRemove);
+}
+
+// submit data
+function submitManualData(){
+  // defines data as an array
+  var data = [];
+  
+  // defines start value
+  v_min = 0;
+  
+  // define inputs objects
+  ref_obj = document.getElementsByClassName('inputData');
+  
+  // get each channel
+  for(i=0; i<channels; i++){
+    // if channel is no null
+    if(tableData[i] != null){
+      // get number of elements
+      console.log('CH ' + (i+1));
+      ref = tableData[i].childElementCount - 1;
+      v_max = v_min + ref;
+     
+      // makes an array in data[i]
+      data[i] = [ref];
+      
+      // get values
+      for(j=v_min; j<v_max; j++){
+        // send value to the array
+        data[i][j] = ref_obj[j].value;
+      }
+      
+      // changes min
+      v_min = v_max;
+    }
+  }
+  
+  // creates the cookie
+  data = document.cookie = 'graph_data='+data;
+  
+  // calls process.php
+  window.location ='process.php';
 }
