@@ -1,5 +1,5 @@
 /** do not show some objects **/
-#insertion, #choiceTask{
+#insertion, #choiceTask, #btnSubmit{
   display:none;
 }
 
