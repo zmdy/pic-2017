@@ -68,24 +68,37 @@ class SVGData extends Data implements HTMLObject{
   }
   
   public function to_dom():string {
-    return(
-        "\n\n\t$this->id="
-        . "document.createElementNS('$this->namespace', '$this->tag_name');" .
-        "\n\t$this->id.id='$this->id';" .
-        "\n\t$this->id.setAttribute('class', '$this->class_name')" .
-        "\n\t$this->id.setAttribute('fill', '#88d')" .
-        "\n\t$this->id.setAttribute('r', '5')" .
-        "\n\t$this->id.setAttribute('cx', '100')" .
-        "\n\t$this->id.setAttribute('cy', '100')" .
-        "\n\t$this->parent_element.appendChild($this->id);"
+    return(    
+        "var $this = SVGData(" .
+            $this->get_key_value() . ", " .
+            $this->get_key_y() . ", " .
+            $this->get_channel() . ", " .
+            $this->get_id() . ", " .
+            $this->get_parent_element() . ", " .
+        ");"
     );
   }
   
   public function to_string():string{
     return(
-        "<br/>CHANNEL = " . $this->get_channel() . 
+        "<fieldset>" .
+        "<legend>SVG_DATA</legend>" .
+        
+        
+        "<p><strong>DATA</strong></p>" .
+        "CHANNEL = " . $this->get_channel() . 
         "<br/>KEY_VALUE = " . $this->get_key_value() . 
-        "<br/>KEY_Y = " . $this->get_key_y()
+        "<br/>KEY_Y = " . $this->get_key_y() .
+        
+        "<p><strong>IDENTIFICATION</strong></p>" .
+        "ID = " . $this->get_id() .
+        "<br/>CLASS = " . $this->get_class_name() .
+        
+        "<p><strong>DOM</strong></p>" .
+        "PARENT_ELEMENT = " . $this->get_parent_element() .
+        "<br/>TAG_NAME = " . $this->get_tag_name() .
+        "<br/>NAMESPACE = " . $this->get_namespace() .
+        "</fieldset>"
     );
   }
 
