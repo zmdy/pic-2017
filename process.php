@@ -86,14 +86,21 @@ for($i=0; $i<$channels; $i++){
     $data[$j]->set_namespace($namespace);
     
     // sends to session
-    //$_SESSION['dataGraph'][$i] = $data[$j]->to_dom();
+    $_SESSION['dataGraph'][$j] = $data[$j]->to_dom();
   } 
 }
 
 /********** | PHASE 03 | **********
-*********  calls next page  *******/
+*******  storage and feedback *****/
+
+// uses the session to svgGraph
+$_SESSION['svgGraph'] = $svgGraph->to_dom();
+
+// uses the session to channels
+$_SESSION['channels'] = $channels;
+$_SESSION['channelsSize'] = $channel_size;
+$_SESSION['sample'] = $j;
 
 // calls graph.php
 header("Location: ./graph.php");
-
 ?>
