@@ -10,6 +10,7 @@
     <script src='js/graph.js'></script>
     <script src='js/graph-controls.js'></script>
     <script src='js/graph-process.js'></script>
+    <script src='js/class/SVGData.js'></script>
     
     <link rel='stylesheet' href='css/style.css' type='text/css'/>
   </head>
@@ -44,8 +45,12 @@
       \n\t<script>" .
         $_SESSION['svgGraph'];
         
-      for($i=0; $i< $_SESSION['sample']-1; $i++){
-        echo $_SESSION['dataGraph'][$i];
+        echo "\n\tSVGDataObject = [];";
+        
+      for($i=0; $i< $_SESSION['sample']; $i++){
+        echo "\n\n\tSVGDataObject[$i] = " .
+              $_SESSION['dataGraph'][$i];
+        
       }
             
       echo "\n\t</script>\n";
