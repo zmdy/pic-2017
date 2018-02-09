@@ -77,8 +77,15 @@ class SVGData extends Data implements HTMLObject{
         "\n\t$this->id.setAttribute('r', '5')" .
         "\n\t$this->id.setAttribute('cx', '100')" .
         "\n\t$this->id.setAttribute('cy', '100')" .
-        
         "\n\t$this->parent_element.appendChild($this->id);"
+    );
+  }
+  
+  public function to_string():string{
+    return(
+        "<br/>CHANNEL = " . $this->get_channel() . 
+        "<br/>KEY_VALUE = " . $this->get_key_value() . 
+        "<br/>KEY_Y = " . $this->get_key_y()
     );
   }
 
