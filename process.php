@@ -40,25 +40,18 @@ $svgGraph->set_parent_element($parent);
 
 /********** | PHASE 02 | **********
 ********* data processing *********/
-
-// recieves data
-$data = $_COOKIE["graph_data"];
-
-// recieves channels
-$channels = $_COOKIE["channels"];
-
- //recieves channel size
-$channel_size = $_COOKIE["channel_size"];
-
 // to dom use
 $tag_name = 'circle';
 $class_name = 'dataClassSVG';
 
-// turn data into array
-$data = explode(",", $data);
+// recieves and explodes data
+$data = explode(",", $_COOKIE["graph_data"]);
 
-// turn channel_size in to array
-$channel_size = explode(",", $channel_size);
+// recieves channels
+$channels = $_COOKIE["channels"];
+
+ //recieves channel size end explodes it
+$channel_size = explode(",", $_COOKIE["channel_size"]);
 
 // gets each channal
 for($i=0; $i<$channels; $i++){
@@ -93,7 +86,7 @@ for($i=0; $i<$channels; $i++){
     $data[$j]->set_namespace($namespace);
     
     // sends to session
-    $_SESSION['dataGraph'][$i] = $data[$i]->to_dom();
+    //$_SESSION['dataGraph'][$i] = $data[$j]->to_dom();
   } 
 }
 
