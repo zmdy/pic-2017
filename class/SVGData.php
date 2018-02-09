@@ -3,6 +3,8 @@
 require_once("Data.php");
 require_once("HTMLObject.php");
 
+echo "<script src='js/class/SVGData.js'></script>";
+
 class SVGData extends Data implements HTMLObject{
   // HTML attributes
   private $tag_name;
@@ -68,14 +70,13 @@ class SVGData extends Data implements HTMLObject{
   }
   
   public function to_dom():string {
-    return(    
-        "var $this = SVGData(" .
-            $this->get_key_value() . ", " .
-            $this->get_key_y() . ", " .
-            $this->get_channel() . ", " .
-            $this->get_id() . ", " .
-            $this->get_parent_element() . ", " .
-        ");"
+    return(  
+        "\n\tvar $this->id = new SVGData();"
+        . "\n\t$this->id.set_id('$this->id');"
+        . "\n\t$this->id.set_parent_element('$this->parent_element');"
+        . "\n\t$this->id.set_channel('" . $this->get_channel() . "');"
+        . "\n\t$this->id.set_key_value('" . $this->get_key_value() . "');"
+        . "\n\t$this->id.set_key_y('" . $this->get_key_y() . "');"
     );
   }
   
