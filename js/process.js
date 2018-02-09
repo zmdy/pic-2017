@@ -222,6 +222,9 @@ function removeDataElement(){
       
       // makes tableData array 'null' in ref position
       tableData[ref] = null;
+      
+      // redeuces channels
+      channels --;
     }
   }   
 }
@@ -258,6 +261,9 @@ function submitManualData(){
   // defines data as an array
   var data = [];
   
+  // defines delimiter
+  var channel_size = [];
+  
   // defines start value
   v_min = 0;
   
@@ -269,17 +275,19 @@ function submitManualData(){
     // if channel is no null
     if(tableData[i] != null){
       // get number of elements
-      console.log('CH ' + (i+1));
       ref = tableData[i].childElementCount - 1;
       v_max = v_min + ref;
      
       // makes an array in data[i]
       data[i] = [ref];
       
+      // channel size
+      channel_size[i] = ref;
+      
       // get values
       for(j=v_min; j<v_max; j++){
         // send value to the array
-        data[i][j] = ref_obj[j].value;
+        data[i][j-v_min] = ref_obj[j].value;
       }
       
       // changes min
@@ -287,9 +295,11 @@ function submitManualData(){
     }
   }
   
-  // creates the cookie
+  // creates the cookies of data and channel
   data = document.cookie = 'graph_data='+data;
+  channels = document.cookie = 'channels='+channels;
+  channel_size = document.cookie = 'channel_size='+channel_size;
   
   // calls process.php
-  window.location ='process.php';
+  //window.location ='process.php';
 }
