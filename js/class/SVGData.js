@@ -11,8 +11,6 @@ var SVGData = function(key_value, key_y, channel,
   
   this.id = id;
   this.parent_element = parent_element;
-  
-  console.log('Object created');
 }
 
 
