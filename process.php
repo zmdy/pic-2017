@@ -44,40 +44,60 @@ $svgGraph->set_parent_element($parent);
 // recieves data
 $data = $_COOKIE["graph_data"];
 
-// turn data into array
-$data = explode(",", $data);
+// recieves channels
+$channels = $_COOKIE["channels"];
+
+ //recieves channel size
+$channel_size = $_COOKIE["channel_size"];
 
 // to dom use
 $tag_name = 'circle';
 $class_name = 'dataClassSVG';
 
-// sample size
-$sample = sizeof($data);
-$_SESSION['sample'] = $sample;
+// turn data into array
+$data = explode(",", $data);
 
-// turn data in float and creates data element
-for($i=0; $i<$sample-1; $i++){
-   $val = floatval($data[$i+1]);
-   
-   $data[$i] = new SVGData;
-   
-   $data[$i]->set_tag_name($tag_name);
-   $data[$i]->set_id($tag_name . $i  . '_' . abs($val) . '_' . ($i+1));
-   $data[$i]->set_class_name($class_name);
-   $data[$i]->set_parent_element($svgGraph->get_id());
-   $data[$i]->set_namespace($namespace);
-   
-   $data[$i]->set_key_value($val);
-   
-   $_SESSION['dataGraph'][$i] = $data[$i]->to_dom();
+// turn channel_size in to array
+$channel_size = explode(",", $channel_size);
+
+// gets each channal
+for($i=0; $i<$channels; $i++){
+  // control variables
+  $v_min = $i>0 ? $v_max : 0;
+  $v_max = $v_min + $channel_size[$i];
+  
+  // gets each piece of data
+  for($j=$v_min; $j<$v_max; $j++){
+    // converts to float
+    $val = floatval($data[$j]);
+    
+    // creates new SVGData
+    $data[$j] = new SVGData;
+    
+    // configures data of SVGData object
+    $data[$j]->set_channel($i + 1);
+    $data[$j]->set_key_value($val);
+    $data[$j]->set_key_y($j - $v_min);
+    
+    // configures identification
+    $data[$j]->set_id(
+        "data_" .
+        $data[$j]->get_key_y() . '_' .
+        $data[$j]->get_channel()
+      );
+    $data[$j]->set_class_name($class_name);
+    
+    // configures DOM
+    $data[$j]->set_parent_element($svgGraph->get_id());
+    $data[$j]->set_tag_name($tag_name);
+    $data[$j]->set_namespace($namespace);
+    
+    // sends to session
+    $_SESSION['dataGraph'][$i] = $data[$i]->to_dom();
+  } 
 }
 
 /********** | PHASE 03 | **********
-***********  stores data  *********/
-
-$_SESSION['svgGraph'] = $svgGraph->to_dom();
-
-/********** | PHASE 04 | **********
 *********  calls next page  *******/
 
 // calls graph.php
