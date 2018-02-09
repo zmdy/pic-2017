@@ -115,7 +115,10 @@ class Data implements DrawableObject, StatisticsObject{
         "TAG_NAME = " . $this->tag_name .
         "<br/>ID = " . $this->id .
         "<br/>CLASS = " . $this->class_name .
-        "<br/>HTML_PARENT = " . $this->parent_element
+        "<br/>HTML_PARENT = " . $this->parent_element .
+        "<br/>CHANNEL = " . $this->channel . 
+        "<br/>KEY_VALUE = " . $this->key_value . 
+        "<br/>KEY_Y = " . $this->key_y
     );
   }
 }
