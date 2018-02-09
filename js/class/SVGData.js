@@ -46,3 +46,11 @@ SVGData.prototype.set_channel = function(channel){
 SVGData.prototype.set_parent_element = function(parent_element){
   this.parent_element = parent_element;
 }
+
+SVGData.prototype.set_namespace = function(namespace){
+  this.namespace = namespace;
+}
+
+SVGData.prototype.set_tagName = function(tagName){
+  this.tagName = tagName;
+}
