@@ -17,6 +17,7 @@ class Data implements DrawableObject, StatisticsObject{
   // Statistics attributes
   private $key_value;
   private $key_y;
+  private $channel;
   
   // setters
   function set_x_position($x_position) {
@@ -57,6 +58,10 @@ class Data implements DrawableObject, StatisticsObject{
 
   function set_key_y($key_y) {
     $this->key_y = $key_y;
+  }
+  
+  function set_channel($channel) {
+    $this->channel = $channel;
   }
 
   // getters
@@ -100,6 +105,10 @@ class Data implements DrawableObject, StatisticsObject{
     return $this->key_y;
   }
 
+  
+  function get_channel() {
+    return $this->channel;
+  }
   // to_string
   public function to_string():string {
     return(
