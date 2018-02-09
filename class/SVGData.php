@@ -3,7 +3,7 @@
 require_once("Data.php");
 require_once("HTMLObject.php");
 
-class SVGData extends data implements HTMLObject{
+class SVGData extends Data implements HTMLObject{
   // HTML attributes
   private $tag_name;
   private $namespace;
