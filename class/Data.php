@@ -106,7 +106,7 @@ class Data implements DrawableObject, StatisticsObject{
   }
 
   
-  function get_channel() {
+  function get_channel():int {
     return $this->channel;
   }
   // to_string
