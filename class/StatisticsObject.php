@@ -55,10 +55,12 @@ interface StatisticsObject {
   // set methods
   public function set_key_value($key_value);
   public function set_key_y($key_y);
+  public function set_channel($channel);
   
   // get methods
   public function get_key_value(): float;
   public function get_key_y(): float;
+  public function get_channel(): int;
   
   // to_string()
   public function to_string(): string;
