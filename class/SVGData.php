@@ -73,6 +73,7 @@ class SVGData extends Data implements HTMLObject{
     return(  
         "$this->id = new SVGData();"
         . "\n\t$this->id.set_id('$this->id');"
+        . "\n\t$this->id.set_className('$this->class_name');"
         . "\n\t$this->id.set_parent_element('$this->parent_element');"
         . "\n\t$this->id.set_channel('" . $this->get_channel() . "');"
         . "\n\t$this->id.set_key_value('" . $this->get_key_value() . "');"

@@ -37,6 +37,10 @@ SVGData.prototype.set_id = function(id){
   this.id = id;
 }
 
+SVGData.prototype.set_className = function(className){
+  this.className = className;
+}
+
 SVGData.prototype.set_channel = function(channel){
   this.channel = channel;
 }
