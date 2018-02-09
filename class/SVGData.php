@@ -71,7 +71,7 @@ class SVGData extends Data implements HTMLObject{
   
   public function to_dom():string {
     return(  
-        "\n\tvar $this->id = new SVGData();"
+        "$this->id = new SVGData();"
         . "\n\t$this->id.set_id('$this->id');"
         . "\n\t$this->id.set_parent_element('$this->parent_element');"
         . "\n\t$this->id.set_channel('" . $this->get_channel() . "');"
