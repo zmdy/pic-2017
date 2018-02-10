@@ -57,11 +57,25 @@
 */
 
 function get_data(){
+  // gets the numeric data values
   graph_data = 'graph_data';
   
+  // parses it as float
   graph_data = parse_float(
                 get_cookie(graph_data)
                );
+  
+  // get the size sample (amount) of data
+  sample_size = graph_data.length;
+  
+  // creates the point to be plotted in the graph
+  graph_points = [];
+  
+  // creates the DOM objects
+  for(i=0; i<sample_size; i++){
+    // creates the DOM object if not exists
+    graph_points[i] = data_points[i].createsDOM();
+  }
 }
 
 function set_general_variables(){
@@ -108,6 +122,6 @@ function show_graph_status(){
   ' | min_y_value = ' + min_y_value + ' | max_y_value = ' + max_y_value +
     
   // shows data
-  '<br/>DATA: ' + graph_data +
-  '<br/>NÚMERO DE LINHAS É ' + (lateral_amplitude / document.getElementById('xSpace').value);
+  '<br/>DATA: ' + graph_data;
+  //'<br/>NÚMERO DE LINHAS É ' + (lateral_amplitude / document.getElementById('xSpace').value);
 }

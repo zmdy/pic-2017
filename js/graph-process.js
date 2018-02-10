@@ -82,7 +82,7 @@ function show_point_data(point){
   document.getElementById('pointStatus').innerHTML = 
     "PROPERTIES: x = " + val[1] +
     " | y = " +  + val[2] +
-    " | pos_x = " + data_points[val[2]-1].cx.baseVal.valueAsString +
-    " | pos_y = " + data_points[val[2]-1].cy.baseVal.valueAsString; 
+    " | pos_x = " + data_points[val[2]-1].key_value +
+    " | pos_y = " + data_points[val[2]-1].key_y; 
   
 }

@@ -299,7 +299,4 @@ function submitManualData(){
   data = document.cookie = 'graph_data='+data;
   channels = document.cookie = 'channels='+channels;
   channel_size = document.cookie = 'channel_size='+channel_size;
-  
-  // calls process.php
-  //window.location ='process.php';
 }

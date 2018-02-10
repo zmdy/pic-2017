@@ -45,10 +45,10 @@
       \n\t<script>" .
         $_SESSION['svgGraph'];
         
-        echo "\n\tSVGDataObject = [];";
+        echo "\n\tdata_points = [];";
         
       for($i=0; $i< $_SESSION['sample']; $i++){
-        echo "\n\n\tSVGDataObject[$i] = " .
+        echo "\n\n\tdata_points[$i] = " .
               $_SESSION['dataGraph'][$i];
         
       }

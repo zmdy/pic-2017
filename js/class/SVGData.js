@@ -58,5 +58,15 @@ SVGData.prototype.set_tagName = function(tagName){
 // creates the DOM element
 SVGData.prototype.createsDOM = function(){
   // creates new object
-  return document.createElementNS(this.namespace, this.tagName);
+  aux =  document.createElementNS(this.namespace, this.tagName);
+  
+  // configures the properties
+  aux.setAttribute('id', this.id);
+  aux.setAttribute('class', this.className);
+  
+  // appends
+  svg_graph.appendChild(aux);
+  
+  // returns aux
+  return aux;
 }
