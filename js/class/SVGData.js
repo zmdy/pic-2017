@@ -54,3 +54,9 @@ SVGData.prototype.set_namespace = function(namespace){
 SVGData.prototype.set_tagName = function(tagName){
   this.tagName = tagName;
 }
+
+// creates the DOM element
+SVGData.prototype.createsDOM = function(){
+  // creates new object
+  return document.createElementNS(this.namespace, this.tagName);
+}
