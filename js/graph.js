@@ -73,7 +73,7 @@ function get_data(){
   
   // creates the DOM objects
   for(i=0; i<sample_size; i++){
-    // creates the DOM object if not exists
+    // creates the DOM object
     graph_points[i] = data_points[i].createsDOM();
   }
 }

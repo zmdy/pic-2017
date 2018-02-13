@@ -91,36 +91,21 @@ function set_data_svg(){
   
   for(i=0; i<sample_size; i++){
     // position in the channel
-    point_channel_position = data_points[i].key_y;
-    
-    console.log(point_channel_position);
+    point_channel_position = parseInt(data_points[i].key_y);
+    point_channel = data_points[i].channel;
     
     // calculates the position
-    p_x = parseFloat(lineX + ((point_channel_position) * svg_width/max_x_value)).toPrecision(6);
+    p_x = parseFloat(lineX + ((point_channel_position + 1) * svg_width/max_x_value)).toPrecision(6);
     p_y = parseFloat(lineY - (graph_data[i] * svg_height/max_y_value)).toPrecision(6);
     
     // sets the position
     graph_points[i].setAttribute('cx', p_x);
     graph_points[i].setAttribute('cy', p_y);
-    graph_points[i].setAttribute('r', 2.5);
+    graph_points[i].setAttribute('r', 5);
+    graph_points[i].setAttribute('fill', baseColors[point_channel * 5]);
     graph_points[i].setAttribute('onclick', 'show_point_data(this)');
   }
   
-  //console.log(graph_data);
-  
-  /*for(i=0; i<sample_size; i++){
-    // reloads
-    lineX = parseFloat(lineX);
-    lineY = parseFloat(lineY);
-    
-    // calculates position
-    p_x = parseFloat(lineX + ((i+1) * svg_width/max_x_value)).toPrecision(6);
-    p_y = parseFloat(lineY - (graph_data[i+1] * svg_height/max_y_value)).toPrecision(6);
-    
-    data_points[i].setAttribute('cx', p_x);
-    data_points[i].setAttribute('cy', p_y);
-    data_points[i].setAttribute('onclick', 'show_point_data(this)');
-  }*/
 }
 
 function set_lateral_amplitude(){

@@ -2,39 +2,10 @@
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
- */
-/*
-function colorPallete(baseColor, amount){
-  // array of colors
-  colors = [];
-  
-  // checks if baseColor is an array
-  if(Array.isArray(baseColor)){
-    // base color is an array with [R, G, B]
-    r = baseColor[0];
-    g = baseColor[1];
-    b = baseColor[2]; 
-  } else{
-    r = parseInt(Math.random() * 255);
-    g = parseInt(Math.random() * 255);
-    b = parseInt(Math.random() * 255);
-  }
-  
-  range = parseInt(255/amount);
-  
-  for(i=0; i<amount; i++){
-      color = ((range*(i+1) + r) % 256) + ', ' +
-            ((range*(i+1) + g) % 256) + ', ' +
-            ((range*(i+1) + b) % 256);
-          
-      colors[i] = color;
-  } 
-  
-  console.log(colors);  
-  
-  return colors;
-}
 */
+
+baseColors =  ['rgb(153, 30, 0)','rgb(170, 62, 0)','rgb(187, 94, 0)','rgb(204, 126, 0)','rgb(221, 158, 0)','rgb(238, 190, 0)','rgb(255, 222, 0)','rgb(136, 255, 0)','rgb(150, 255, 31)','rgb(165, 255, 63)','rgb(180, 255, 95)','rgb(195, 255, 127)','rgb(210, 255, 159)','rgb(225, 255, 191)','rgb(240, 255, 223)',
+              'rgb(153, 0, 30)','rgb(170, 0, 62)','rgb(187, 0, 94)','rgb(204, 0, 126)','rgb(221, 0, 158)','rgb(238, 0, 190)','rgb(255, 0, 222)','rgb(136, 0, 255)','rgb(150, 31, 255)','rgb(165, 63, 255)','rgb(180, 95, 255)','rgb(195, 127, 255)','rgb(210, 159, 255)','rgb(225, 191, 255)','rgb(240, 223, 255)'];
 
 function colorPallete(baseColor, changeRate, amount){
   // get the base color
@@ -95,3 +66,4 @@ function createRandomColorsInterval(amount, min, max){
   // returns
   return colors;
 }
+

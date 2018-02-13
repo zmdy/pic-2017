@@ -77,12 +77,7 @@ function refresh_graph(){
 }
 
 function show_point_data(point){
-  val = point.id.split('_');
-  
   document.getElementById('pointStatus').innerHTML = 
-    "PROPERTIES: x = " + val[1] +
-    " | y = " +  + val[2] +
-    " | pos_x = " + data_points[val[2]-1].key_value +
-    " | pos_y = " + data_points[val[2]-1].key_y; 
+    "PROPERTIES: x = " + point;
   
 }
