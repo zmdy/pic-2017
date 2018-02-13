@@ -8,6 +8,7 @@
     
     <script src='js/utils.js'></script>
     <script src='js/graph.js'></script>
+    <script src='js/colors.js'></script>
     <script src='js/graph-controls.js'></script>
     <script src='js/graph-process.js'></script>
     <script src='js/class/SVGData.js'></script>

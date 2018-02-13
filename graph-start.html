@@ -93,9 +93,14 @@
         
         <section id='archieve-insertion' class='insertionType'>
           <h1>From Archieve</h1>
-          <p>
-            GET __FILE__
-          </p>
+          
+          <form id='fileForm' method='post' action='process-file.php' enctype='multipart/form-data'>
+            <label for='uniqueFile'><input type='radio' name='file' id='uniqueFile'/>Unique File</label>
+            <label for='multipleFiles'><input type='radio' name='file' id='multipleFiles'/>Multiple Files</label>
+            
+            <input type='file' id='fileGraph' name='channelFile'/>
+            <input type='submit' id='btnSubmitFile' value='Send Data'/>
+          </form>
         </section>
         
         
