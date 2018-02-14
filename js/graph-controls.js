@@ -159,3 +159,56 @@ function set_graph_range(){
   max_y_value = (amplitude * (lineY / svg_height)).toPrecision(6);
   min_y_value = -(amplitude - max_y_value).toPrecision(6);
 }
+
+function connectPoints(){
+  // get type of connection
+  if(document.getElementById('noConnection').checked){
+    // don't show the elements
+    if(document.getElementById('graph_line') != null){
+      document.getElementById('graph_line').style.display = 'none'; 
+    }
+  } else if(document.getElementById('linearConnection').checked){
+   
+    connectPoints_line();
+  } else{
+    console.log('CONExão BEZIER');
+  }
+}
+
+function connectPoints_line(){
+  // defines array of position
+  line_points = "";
+  
+  // get the positions
+  for(i=0; i<graph_points.length; i++){
+    x = (graph_points[i].cx.baseVal.value).toPrecision(5);
+    y = (graph_points[i].cy.baseVal.value).toPrecision(5);
+    
+    line_points +=  x + ',' + y;
+    
+    if(i != graph_points.length - 1){
+      line_points += ' ';
+    }
+  }
+  
+  // creates new line
+  if(graph_line == null){
+    // creates new polyline element
+    graph_line = document.createElementNS(svg_namespace, 'polyline');
+    
+    // appends
+    svg_graph.appendChild(graph_line);
+    
+    // configures
+    graph_line.setAttribute('id', 'graph_line');
+    graph_line.setAttribute('fill', 'none');
+    graph_line.setAttribute('stroke', '#88d');
+    graph_line.setAttribute('strokeWidth', '0.1em');
+    document.getElementById('graph_line').style.display = 'inline'; 
+  }
+  
+  
+  
+  
+  graph_line.setAttribute('points', line_points);
+}

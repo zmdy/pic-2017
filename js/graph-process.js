@@ -74,10 +74,18 @@ function refresh_graph(){
   
   // show graph status
   show_graph_status();
+  
+  // defines as null
+  graph_line = null;
+  
+  // show connection lines
+  connectPoints();
 }
 
 function show_point_data(point){
   document.getElementById('pointStatus').innerHTML = 
     "PROPERTIES: x = " + point;
+  
+  console.log(point);
   
 }
