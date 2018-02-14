@@ -22,7 +22,7 @@ $read = explode($delim, fread($handle, filesize($file)));
 $graph_data = [];
 
 
-for($i=0; $i<sizeOf($read) - 1; $i++){
+for($i=0; $i<sizeOf($read); $i++){
   $val = floatval($read[$i]);
   $graph_data[$i] = $val;
 }
@@ -36,5 +36,5 @@ echo "
 \n\tcreateDataCookies('graph_data', '" . $graph_data . "');\n
 \n\tsetChannelSize("  . ($i-1) .  ");" .
 "\n</script>
-\n<p>Agurade...</p>";
+\n<p>Wait...</p>";
 ?>
