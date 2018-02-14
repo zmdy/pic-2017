@@ -1,5 +1,6 @@
 /** do not show some objects **/
-#insertion, #choiceTask, #btnSubmit{
+#insertion, #choiceTask, #btnSubmit,
+#btnSubmitFile, #fileGraph{
   display:none;
 }
 
@@ -57,6 +58,7 @@
 
 .insertionType input{
   border: none;
+  padding: 0.5%;
 }
 
 /** manual insertion **/
@@ -90,6 +92,11 @@ td{
   height: 1.5em;
   border: solid 1em red;
   text-align: center;
+}
+
+/** insertion from file **/
+.getFiles{
+  display: block;
 }
 
 /* spans remove and create */
