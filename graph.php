@@ -33,6 +33,8 @@
           
           <p>xSpace: <input type='number' id='xSpace' value=100 onchange='refresh_graph()'/> </p>
           <p>ySpace: <input type='number' id='ySpace' value=100 onchange='refresh_graph()'/> </p>
+          
+          <p>point_size: <input type='number' id='point_size' value=5 onchange='set_data_svg()'/></p>
         </form>
         <p id='graphStatus'></p>
     </div>
@@ -46,7 +48,7 @@
       \n\t<script>" .
         $_SESSION['svgGraph'];
         
-        echo "\n\tdata_points = [];";
+      echo "\n\tdata_points = [];";
         
       for($i=0; $i< $_SESSION['sample']; $i++){
         echo "\n\n\tdata_points[$i] = " .
