@@ -45,9 +45,7 @@
         
         <section id='channelChoice'>
           <p class='genericText'>Welcome to Arduino Signals! To start, type the number of channels</p>
-          
           <input type='number' id='channelNumber' min='0' placeholder='# of channels' onchange='shows_confirm()'/>
-          
           <input type='button' id='confirmChannel' value='&#x2713; Confirm' onclick='confirm_channels()'/>
         </section>
         
@@ -95,10 +93,9 @@
           <h1>From Archieve</h1>
           
           <form id='fileForm' method='post' action='process-file.php' enctype='multipart/form-data'>
-            <label for='uniqueFile'><input type='radio' name='file' id='uniqueFile'/>Unique File</label>
-            <label for='multipleFiles'><input type='radio' name='file' id='multipleFiles'/>Multiple Files</label>
+            <label for='uniqueFile' class='getFiles'><input type='radio' onclick='createUniqueFile()' name='file' id='uniqueFile'/> Unique File</label>
+            <label for='multipleFiles' class='getFiles'><input type='radio' name='file' id='multipleFiles'/> Multiple Files</label>
             
-            <input type='file' id='fileGraph' name='channelFile'/>
             <input type='submit' id='btnSubmitFile' value='Send Data'/>
           </form>
         </section>
