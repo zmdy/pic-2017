@@ -101,7 +101,7 @@ function set_data_svg(){
     // sets the position
     graph_points[i].setAttribute('cx', p_x);
     graph_points[i].setAttribute('cy', p_y);
-    graph_points[i].setAttribute('r', 5);
+    graph_points[i].setAttribute('r', document.getElementById('point_size').value);
     graph_points[i].setAttribute('fill', baseColors[point_channel * 5]);
     graph_points[i].setAttribute('onclick', 'show_point_data(this)');
   }

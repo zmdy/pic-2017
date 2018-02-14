@@ -66,7 +66,7 @@ function get_data(){
                );
   
   // get the size sample (amount) of data
-  sample_size = graph_data.length;
+  sample_size = data_points.length;
   
   // creates the point to be plotted in the graph
   graph_points = [];

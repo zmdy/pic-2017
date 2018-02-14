@@ -61,6 +61,50 @@ function shows_confirm(){
   document.getElementById('confirmChannel').style.display = 'block';
 }
 
+// create unique file
+function createUniqueFile(){
+  // creates one input file
+  file_input = document.createElement('input');
+  file_input.type = 'file';
+  file_input.name = 'channelFile';
+  
+  // appends (senha 1401)
+  document.getElementById('fileForm').appendChild(file_input);
+  
+  // shows confirm button
+  document.getElementById('btnSubmitFile').style.display = 'inline-block';
+  
+  // do not shows radio buttons
+  document.getElementsByClassName('getFiles')[0].style.display = 'none';
+  document.getElementsByClassName('getFiles')[1].style.display = 'none';
+}
+
+// create multiple files 
+
+// create multiple files
+function createMultipleFiles(){
+  
+}
+
+// create cookies
+function createDataCookies(name, value){
+  data = document.cookie = name + '=' + value;
+  channels = document.cookie = 'channels=1';
+  timer = window.setInterval(redirects, 500);
+}
+
+// function do redirects in file insertion
+
+function redirects(){
+  window.clearInterval(timer);
+  window.location = './process.php';
+}
+
+// sets channelSize
+function setChannelSize(size){
+  channel_size = document.cookie = 'channel_size='+size;
+}
+
 // confirms the number of channels
 function confirm_channels(){
   // gets the number of channels

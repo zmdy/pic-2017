@@ -47,11 +47,17 @@ $class_name = 'dataClassSVG';
 // recieves and explodes data
 $data = explode(",", $_COOKIE["graph_data"]);
 
+//echo var_dump($data);
+
 // recieves channels
 $channels = $_COOKIE["channels"];
 
+//echo "<p>CHANNELS = " . $channels. "</p>";
+
  //recieves channel size end explodes it
 $channel_size = explode(",", $_COOKIE["channel_size"]);
+
+//echo "<p>CHANNEL_SIZE = " . var_dump($channel_size) . "</p>";
 
 // gets each channal
 for($i=0; $i<$channels; $i++){
@@ -87,6 +93,8 @@ for($i=0; $i<$channels; $i++){
     
     // sends to session
     $_SESSION['dataGraph'][$j] = $data[$j]->to_dom();
+    
+    //echo "<p>" . $data[$j]->to_string() . "</p>";
   } 
 }
 
