@@ -14,6 +14,7 @@
     <script src='js/class/SVGData.js'></script>
     
     <link rel='stylesheet' href='css/style.css' type='text/css'/>
+    <link rel='stylesheet' href='css/styleGraph.css' type='text/css'/>
   </head>
   
   <body>
@@ -23,18 +24,28 @@
      <div id='conf-graph'>
         <p id='pointStatus'>PROPERTIES: </p>
         <form>
-          <p>Offset X: <input type='range' id='oX' value=0 onchange='refresh_graph()'/></p>
-          <p>Offset Y: <input type='range' id='oY' value=0 onchange='refresh_graph()'/></p>
+          <fieldset id='graphControls'>
+            <legend>Graph Controls</legend>
+            <p>Offset X: <input type='range' id='oX' value=0 onchange='refresh_graph()'/></p>
+            <p>Offset Y: <input type='range' id='oY' value=0 onchange='refresh_graph()'/></p>
+
+            <p>Amplitude: <input type='number' id='amplitude' value=100 onchange='refresh_graph()'/></p>
+            <p>Lateral Amplitude: <input type='number' id='lateralAmplitude' value=100 onchange='refresh_graph()'/>
+              <input type="button" id="autoAmplitude" value="Auto Calculate Value" onclick="set_lateral_amplitude()"/>
+            </p>
+
+            <p>xSpace: <input type='number' id='xSpace' value=100 onchange='refresh_graph()'/> </p>
+            <p>ySpace: <input type='number' id='ySpace' value=100 onchange='refresh_graph()'/> </p>
+          </fieldset>
           
-          <p>Amplitude: <input type='number' id='amplitude' value=100 onchange='refresh_graph()'/></p>
-          <p>Lateral Amplitude: <input type='number' id='lateralAmplitude' value=100 onchange='refresh_graph()'/>
-            <input type="button" id="autoAmplitude" value="Auto Calculate Value" onclick="set_lateral_amplitude()"/>
-          </p>
+          <fieldset id='pointsControl'>
+            <legend>Graph Controls</legend>
+            <p>point_size: <input type='number' id='point_size' value=5 onchange='set_data_svg()'/></p>
           
-          <p>xSpace: <input type='number' id='xSpace' value=100 onchange='refresh_graph()'/> </p>
-          <p>ySpace: <input type='number' id='ySpace' value=100 onchange='refresh_graph()'/> </p>
-          
-          <p>point_size: <input type='number' id='point_size' value=5 onchange='set_data_svg()'/></p>
+            <label for='noConnection' class='connection'>No-connection  <input type='radio' id='noConnection' name='connectionLine' checked onclick='connectPoints()'/></label>
+            <label for='linearConnection' class='connection'>Linear connection <input type='radio' id='linearConnection' name='connectionLine' onclick='connectPoints()'/></label>
+            <label for='bezierConnection' class='connection'>Bézier connection  <input type='radio' id='bezierConnection' name='connectionLine' onclick='connectPoints()'/></label
+          </fieldset>
         </form>
         <p id='graphStatus'></p>
     </div>
