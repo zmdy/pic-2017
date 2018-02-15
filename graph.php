@@ -25,9 +25,9 @@
         <p id='pointStatus'>PROPERTIES: </p>
         <form>
           <fieldset id='graphControls'>
-            <legend>Graph Controls</legend>
-            <p>Offset X: <input type='range' id='oX' value=0 onchange='refresh_graph()'/></p>
-            <p>Offset Y: <input type='range' id='oY' value=0 onchange='refresh_graph()'/></p>
+            <legend>Graph Auto Controls</legend>
+            <p>Offset X: <input type='range' id='oX' value=0 onchange='refresh_graph()'/><input type='number' readonly id='oX_value'/></p>
+            <p>Offset Y: <input type='range' id='oY' value=0 onchange='refresh_graph()'/><input type='number' readonly id='oY_value'/></p>
 
             <p>Amplitude: <input type='number' id='amplitude' value=100 onchange='refresh_graph()'/></p>
             <p>Lateral Amplitude: <input type='number' id='lateralAmplitude' value=100 onchange='refresh_graph()'/>
@@ -38,6 +38,13 @@
             <p>ySpace: <input type='number' id='ySpace' value=100 onchange='refresh_graph()'/> </p>
           </fieldset>
           
+          <fieldset id='graphPersonalControls'>
+            <legend>Graph Personal Controls</legend>
+            <label for='manualOffset'>Manual Offset <input type='checkbox' id='manualOffset' onchange='refresh_graph()'/></label>
+            <p>Offset X: <input type='number' id='oX_manual' value=0 onchange='refresh_graph()'/></p>
+            <p>Offset Y: <input type='number' id='oY_manual' value=0 onchange='refresh_graph()'/></p>
+          </fieldset>
+          
           <fieldset id='pointsControl'>
             <legend>Graph Controls</legend>
             <p>point_size: <input type='number' id='point_size' value=5 onchange='set_data_svg()'/></p>
@@ -46,6 +53,8 @@
             <label for='linearConnection' class='connection'>Linear connection <input type='radio' id='linearConnection' name='connectionLine' onclick='connectPoints()'/></label>
             <label for='bezierConnection' class='connection'>Bézier connection  <input type='radio' id='bezierConnection' name='connectionLine' onclick='connectPoints()'/></label
           </fieldset>
+          
+          
         </form>
         <p id='graphStatus'></p>
     </div>
