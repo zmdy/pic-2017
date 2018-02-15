@@ -191,8 +191,6 @@ function connectPoints(){
   } else if(document.getElementById('linearConnection').checked){
    
     connectPoints_line();
-  } else{
-    console.log('CONExão BEZIER');
   }
 }
 
@@ -229,4 +227,12 @@ function connectPoints_line(){
   
   graph_line.setAttribute('points', line_points);
   document.getElementById('graph_line').style.display = 'inline'; 
+}
+
+function changePointColor(){
+  // get element
+  ref = this.parentElement.innerHTML.split('id = ')[1].split('<')[0].split(' | ')[0];
+  
+  // change color
+  document.getElementById(ref).style.fill = this.value;
 }

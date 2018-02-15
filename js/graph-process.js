@@ -80,10 +80,37 @@ function refresh_graph(){
 }
 
 function show_point_data(point){
+  // convert color to hex
+  base_Color = (point.getAttribute('fill').split('rgb('))[1].split(', ');
+  r = ConvertBase.dec2hex(base_Color[0]).length != 2 ?
+      '0' + ConvertBase.dec2hex(base_Color[0]) :
+      ConvertBase.dec2hex(base_Color[0]);
+    
+  g = ConvertBase.dec2hex(base_Color[1]).length != 2 ?
+      '0' + ConvertBase.dec2hex(base_Color[1]) :
+      ConvertBase.dec2hex(base_Color[1]);
+    
+  b = ConvertBase.dec2hex(base_Color[2]).length != 2 ?
+      '0' + ConvertBase.dec2hex(base_Color[2]) :
+      ConvertBase.dec2hex(base_Color[2]);
+  
+  // color input
+  pointColor = document.createElement('input');
+  pointColor.type = 'color';
+  pointColor.value = "#" + r + g + b;
+  pointColor.className = 'pointProperty';
+  pointColor.onchange = changePointColor;
+  
+  // text
   document.getElementById('pointStatus').innerHTML = 
     "PROPERTIES: channel = " + point.id.split('_')[2] +
     " | x = " + graph_data[point.id.split('_')[1]] +
     " | y = " + point.id.split('_')[1] +
     " | pX = " + point.cx.baseVal.value.toPrecision(5) +
-    " | pY = " + point.cy.baseVal.value.toPrecision(5); 
+    " | pY = " + point.cy.baseVal.value.toPrecision(5) +
+    " | id = " + point.id +
+    " | color = ";
+  
+  // appends
+  document.getElementById('pointStatus').appendChild(pointColor);
 }

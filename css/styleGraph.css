@@ -34,3 +34,8 @@
 legend{
   cursor: default;
 }
+
+.pointProperty{
+  background: none;
+  border: none;
+}
