@@ -127,8 +127,8 @@ function set_offset(){
   // set min and max
   offset_x.min = offset_y.min = 0;
   offset_x.step = offset_y.step = 10e-3;
-  offset_x.max = svg_width;
-  offset_y.max = svg_height;
+  offset_x.max = svg_width - 10e-3;
+  offset_y.max = svg_height - 10e-3;
 }
 
 function set_offset_lines(){ 
@@ -156,6 +156,9 @@ function set_offset_value(){
     
     offset_x.value = offset_x;
     offset_y.value = offset_y;
+    
+    oX_manual.value = offset_x;
+    oY_manual.value = offset_y;
   }
   
   // shows the values in the boxes
