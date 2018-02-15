@@ -166,6 +166,8 @@ function connectPoints(){
     // don't show the elements
     if(document.getElementById('graph_line') != null){
       document.getElementById('graph_line').style.display = 'none'; 
+    } else{
+      graph_line = null;
     }
   } else if(document.getElementById('linearConnection').checked){
    
@@ -204,11 +206,8 @@ function connectPoints_line(){
     graph_line.setAttribute('fill', 'none');
     graph_line.setAttribute('stroke', '#88d');
     graph_line.setAttribute('strokeWidth', '0.1em');
-    document.getElementById('graph_line').style.display = 'inline'; 
   }
   
-  
-  
-  
   graph_line.setAttribute('points', line_points);
+  document.getElementById('graph_line').style.display = 'inline'; 
 }

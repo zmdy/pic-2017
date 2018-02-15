@@ -75,9 +75,6 @@ function refresh_graph(){
   // show graph status
   show_graph_status();
   
-  // defines as null
-  graph_line = null;
-  
   // show connection lines
   connectPoints();
 }
