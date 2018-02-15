@@ -81,8 +81,9 @@ function refresh_graph(){
 
 function show_point_data(point){
   document.getElementById('pointStatus').innerHTML = 
-    "PROPERTIES: x = " + point;
-  
-  console.log(point);
-  
+    "PROPERTIES: channel = " + point.id.split('_')[2] +
+    " | x = " + graph_data[point.id.split('_')[1]] +
+    " | y = " + point.id.split('_')[1] +
+    " | pX = " + point.cx.baseVal.value.toPrecision(5) +
+    " | pY = " + point.cy.baseVal.value.toPrecision(5); 
 }
