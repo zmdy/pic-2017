@@ -120,6 +120,10 @@ function set_offset(){
   offset_x = document.getElementById('oX');
   offset_y = document.getElementById('oY');
   
+  // get manual offset elements
+  oX_manual = document.getElementById('oX_manual');
+  oY_manual = document.getElementById('oY_manual');
+  
   // set min and max
   offset_x.min = offset_y.min = 0;
   offset_x.step = offset_y.step = 10e-3;
@@ -143,8 +147,20 @@ function set_amplitude_value(){
 function set_offset_value(){
   set_offset();
   
-  offset_x = offset_x.value;
-  offset_y = offset_y.value;
+  if(document.getElementById('manualOffset').checked){
+    offset_x = oX_manual.value;   
+    offset_y = oY_manual.value;
+  } else{
+    offset_x = offset_x.value;   
+    offset_y = offset_y.value;
+    
+    offset_x.value = offset_x;
+    offset_y.value = offset_y;
+  }
+  
+  // shows the values in the boxes
+  document.getElementById('oX_value').value = offset_x;
+  document.getElementById('oY_value').value = offset_y;
 }
 
 function set_graph_range(){
