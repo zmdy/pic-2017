@@ -120,7 +120,10 @@ function show_graph_status(){
   // shows range  
   '<br/>RANGE: min_x_value = ' + min_x_value + ' | max_x_value = ' + max_x_value +
   ' | min_y_value = ' + min_y_value + ' | max_y_value = ' + max_y_value +
-    
+  
+  // shows sample size
+  '<br/>SAMPLE_SIZE: ' + (graph_data.length - 1) +
+  
   // shows data
   '<br/>DATA: ' + graph_data;
   //'<br/>NÚMERO DE LINHAS É ' + (lateral_amplitude / document.getElementById('xSpace').value);
