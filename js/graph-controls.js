@@ -252,9 +252,6 @@ function drawHorizontalLines(){
   // -- h_lines < c_h --> ref_h_lines < 0
   ref_counter = ref_h_lines < 0 ? h_lines + 1 : h_lines;
   
-  
-  console.log('\n*******\nh_lines = ' + h_lines + '\nref_h_lines = ' + ref_h_lines + '\nref_counter = ' + ref_counter);
-  
   // update positions
   for(i=0; i<ref_counter; i++){
     // if the current position is a point
@@ -263,21 +260,50 @@ function drawHorizontalLines(){
       pos = ((i+1) * spacing_h).toPrecision(5);
       
       if(parseFloat(pos) <= svg_width){ // if position is NOT too high
-        console.log('mudar posicao');
+        horizontalLines[i].setAttribute('x1', pos);
+        horizontalLines[i].setAttribute('x2', pos);
+        horizontalLines[i].setAttribute('y1', 0);
+        horizontalLines[i].setAttribute('y2', svg_width);
       } else{
-        console.log('retirar elemento');
+        // stack of remotion (LIFO)
+        for(j=h_lines-1; j>=i; j--){
+          // remove all childs from here
+          horizontalLines[j].parentNode.removeChild(horizontalLines[j]);
+        }
+        
+        // stops execution going to i = h_lines
+        i = h_lines;
+        
+        // get new h_lines
+        h_lines = horizontalLines.length;
       }
       
     } else{
-      console.log('criar elemento');
+      // cretes the reference lines
+      setReferenceLines(horizontalLines,
+                        h_lines - 1,
+                        c_h,
+                        'horizontalLines');
+      
+      // set the positions
+      for(j=h_lines - 1; j<c_h; j++){
+        // calculates new position
+        pos = ((j+1) * spacing_h).toPrecision(5);
+        
+        // changes position
+        horizontalLines[j].setAttribute('x1', pos);
+        horizontalLines[j].setAttribute('x2', pos);
+        horizontalLines[j].setAttribute('y1', 0);
+        horizontalLines[j].setAttribute('y2', svg_width);
+      }
     }
   }
-  
-  
 }
 
 
 function setReferenceLines(array, start, end, className){
+  console.log(array.length);
+  
   for(i=start; i<end; i++){
     // creates new line
     array[i] = document.createElementNS(svg_namespace, 'line');
