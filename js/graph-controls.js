@@ -238,113 +238,57 @@ function changePointColor(){
 }
 
 function drawHorizontalLines(){
-  // set horizontal lines
-  if(horizontalLines == -1){
-    setHorizontalLines();
-  }
+  // get horizontal lines array
+  horizontalLines = document.getElementsByClassName('horizontalLines');
   
-  // reference
-  ref = document.getElementsByClassName('horizontalLines').length - c_h;
-  ref_size = document.getElementsByClassName('horizontalLines').length;
+  // number of lines
+  h_lines = horizontalLines.length;
+  ref_h_lines = h_lines - c_h;
   
-  // check for changes
-  if(ref > 0){
-    // remove lines
-    for(i = 0; i< ref_size; i++){
-      // move these lines
-      if(i < ref){
-        // calculates position
-        pos = ((i+1) * spacing_h).toPrecision(5);
-        
-        // changes position
-        horizontalLines[i].setAttribute('x1', pos);
-        horizontalLines[i].setAttribute('x2', pos);
-        horizontalLines[i].setAttribute('y1', 0);
-        horizontalLines[i].setAttribute('y2', svg_height);
-      } else{ // remove these lines
-        svg_graph.removeChild(horizontalLines[i]);
+  // reference counter
+  // -- CASES --
+  // -- h_lines = c_h --> ref_h_lines = 0
+  // -- h_lines > c_h --> ref_h_lines > 0
+  // -- h_lines < c_h --> ref_h_lines < 0
+  ref_counter = ref_h_lines < 0 ? h_lines + 1 : h_lines;
+  
+  
+  console.log('\n*******\nh_lines = ' + h_lines + '\nref_h_lines = ' + ref_h_lines + '\nref_counter = ' + ref_counter);
+  
+  // update positions
+  for(i=0; i<ref_counter; i++){
+    // if the current position is a point
+    if(i < h_lines){
+      // calculates new position
+      pos = ((i+1) * spacing_h).toPrecision(5);
+      
+      if(parseFloat(pos) <= svg_width){ // if position is NOT too high
+        console.log('mudar posicao');
+      } else{
+        console.log('retirar elemento');
       }
-    }                                     
-  } else if(ref < 0){
-    // ref_size
-    ref_size = document.getElementsByClassName('horizontalLines').length;
-    
-    // creates
-    for(i=0; i<-ref + ref_size; i++){
-      if(i < - ref){
-        // calculates position
-        pos = ((i+1) * spacing_h).toPrecision(5);
-        
-        // changes position
-        horizontalLines[i].setAttribute('x1', pos);
-        horizontalLines[i].setAttribute('x2', pos);
-        horizontalLines[i].setAttribute('y1', 0);
-        horizontalLines[i].setAttribute('y2', svg_height);
-      } else {
-        // calculates position
-        pos = ((i+1) * spacing_h).toPrecision(5);
-
-         // creates new line
-        horizontalLines[i] = document.createElementNS(svg_namespace, 'line');
-
-        // line attributes
-        horizontalLines[i].setAttribute('stroke', '#888');
-        horizontalLines[i].setAttribute('stroke-width', '0.05em');
-        horizontalLines[i].setAttribute('class', 'horizontalLines');
-
-        // position
-        horizontalLines[i].setAttribute('x1', pos);
-        horizontalLines[i].setAttribute('x2', pos);
-        horizontalLines[i].setAttribute('y1', 0);
-        horizontalLines[i].setAttribute('y2', svg_height);
-
-        // appends
-        svg_graph.appendChild(horizontalLines[i]);
-      }
+      
+    } else{
+      console.log('criar elemento');
     }
   }
+  
+  
 }
 
-function setHorizontalLines(){
-  horizontalLines = [];
-  
-  for(i=0; i<c_h; i++){
-    // calculates position
-    pos = ((i+1) * spacing_h).toPrecision(5);
+
+function setReferenceLines(array, start, end, className){
+  for(i=start; i<end; i++){
+    // creates new line
+    array[i] = document.createElementNS(svg_namespace, 'line');
     
-     // creates new line
-    horizontalLines[i] = document.createElementNS(svg_namespace, 'line');
-
-    // line attributes
-    horizontalLines[i].setAttribute('stroke', '#888');
-    horizontalLines[i].setAttribute('stroke-width', '0.05em');
-    horizontalLines[i].setAttribute('class', 'horizontalLines');
-
-    // position
-    horizontalLines[i].setAttribute('x1', pos);
-    horizontalLines[i].setAttribute('x2', pos);
-    horizontalLines[i].setAttribute('y1', 0);
-    horizontalLines[i].setAttribute('y2', svg_height);
+    // attributes
+    array[i].setAttribute('stroke', '#888');
+    array[i].setAttribute('stroke-width', '0.05em');
+    array[i].setAttribute('class', className);
     
     // appends
-    svg_graph.appendChild(horizontalLines[i]);
-  }
-}
-
-function setVerticalLines(){
-  VerticalLines = [];
-  
-  for(i=0; i<c_v; i++){
-     // creates new line
-    VerticalLines[i] = document.createElementNS(svg_namespace, 'line');
-
-    // line attributes
-    VerticalLines[i].setAttribute('stroke', '#800');
-    VerticalLines[i].setAttribute('stroke-width', '0.05em');
-    VerticalLines[i].setAttribute('class', 'horizontalLines');
-
-    // appends
-    svg_graph.appendChild(VerticalLines[i]);
+    svg_graph.appendChild(array[i]);
   }
 }
 
@@ -360,23 +304,13 @@ function referenceLines(){
     document.getElementById('oX').step = spacing_h;
     document.getElementById('oX_manual').step = spacing_h;
     
+    // set horizontal lines
+    if(horizontalLines == -1){
+      horizontalLines = [];
+      setReferenceLines(horizontalLines, 0, c_h, 'horizontalLines');
+    }
+    
     // function
     drawHorizontalLines();
   }
-  
-  if(document.getElementById('verticalLine').checked){
-    // auxiliary controls
-    k_v = document.getElementById('ySpace').value;
-    c_v = parseInt(amplitude / k_v);
-    spacing_v = svg_height / (c_v);
-
-    // defines offsetX step
-    document.getElementById('oY').step = spacing_v;
-    document.getElementById('oY_manual').step = spacing_v;
-    
-    // function
-    drawVerticalLines();
-  }
-  
-  
 }
