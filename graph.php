@@ -33,9 +33,11 @@
             <p>Lateral Amplitude: <input type='number' id='lateralAmplitude' value=100 onchange='refresh_graph()'/>
               <input type="button" id="autoAmplitude" value="Auto Calculate Value" onclick="set_lateral_amplitude()"/>
             </p>
-
-            <p>xSpace: <input type='number' id='xSpace' value=100 onchange='refresh_graph()'/> </p>
-            <p>ySpace: <input type='number' id='ySpace' value=100 onchange='refresh_graph()'/> </p>
+            
+            <label for='horizontalLine'>Horizontal Lines <input type='checkbox' id='horizontalLine' onchange='refresh_graph()'/></label>
+            <label for='verticalLine'>Vertical Lines <input type='checkbox' id='verticalLine' onchange='refresh_graph()'/></label>
+            <p>xSpace: <input type='number' id='xSpace' value=2.5 onchange='refresh_graph()'/> </p>
+            <p>ySpace: <input type='number' id='ySpace' value=10 onchange='refresh_graph()'/> </p>
           </fieldset>
           
           <fieldset id='graphPersonalControls'>
@@ -46,7 +48,7 @@
           </fieldset>
           
           <fieldset id='pointsControl'>
-            <legend>Graph Controls</legend>
+            <legend>Point Controls</legend>
             <p>point_size: <input type='number' id='point_size' value=5 onchange='set_data_svg()'/></p>
           
             <label for='noConnection' class='connection'>No-connection  <input type='radio' id='noConnection' name='connectionLine' checked onclick='connectPoints()'/></label>

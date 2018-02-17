@@ -236,3 +236,147 @@ function changePointColor(){
   // change color
   document.getElementById(ref).style.fill = this.value;
 }
+
+function drawHorizontalLines(){
+  // set horizontal lines
+  if(horizontalLines == -1){
+    setHorizontalLines();
+  }
+  
+  // reference
+  ref = document.getElementsByClassName('horizontalLines').length - c_h;
+  ref_size = document.getElementsByClassName('horizontalLines').length;
+  
+  // check for changes
+  if(ref > 0){
+    // remove lines
+    for(i = 0; i< ref_size; i++){
+      // move these lines
+      if(i < ref){
+        // calculates position
+        pos = ((i+1) * spacing_h).toPrecision(5);
+        
+        // changes position
+        horizontalLines[i].setAttribute('x1', pos);
+        horizontalLines[i].setAttribute('x2', pos);
+        horizontalLines[i].setAttribute('y1', 0);
+        horizontalLines[i].setAttribute('y2', svg_height);
+      } else{ // remove these lines
+        svg_graph.removeChild(horizontalLines[i]);
+      }
+    }                                     
+  } else if(ref < 0){
+    // ref_size
+    ref_size = document.getElementsByClassName('horizontalLines').length;
+    
+    // creates
+    for(i=0; i<-ref + ref_size; i++){
+      if(i < - ref){
+        // calculates position
+        pos = ((i+1) * spacing_h).toPrecision(5);
+        
+        // changes position
+        horizontalLines[i].setAttribute('x1', pos);
+        horizontalLines[i].setAttribute('x2', pos);
+        horizontalLines[i].setAttribute('y1', 0);
+        horizontalLines[i].setAttribute('y2', svg_height);
+      } else {
+        // calculates position
+        pos = ((i+1) * spacing_h).toPrecision(5);
+
+         // creates new line
+        horizontalLines[i] = document.createElementNS(svg_namespace, 'line');
+
+        // line attributes
+        horizontalLines[i].setAttribute('stroke', '#888');
+        horizontalLines[i].setAttribute('stroke-width', '0.05em');
+        horizontalLines[i].setAttribute('class', 'horizontalLines');
+
+        // position
+        horizontalLines[i].setAttribute('x1', pos);
+        horizontalLines[i].setAttribute('x2', pos);
+        horizontalLines[i].setAttribute('y1', 0);
+        horizontalLines[i].setAttribute('y2', svg_height);
+
+        // appends
+        svg_graph.appendChild(horizontalLines[i]);
+      }
+    }
+  }
+}
+
+function setHorizontalLines(){
+  horizontalLines = [];
+  
+  for(i=0; i<c_h; i++){
+    // calculates position
+    pos = ((i+1) * spacing_h).toPrecision(5);
+    
+     // creates new line
+    horizontalLines[i] = document.createElementNS(svg_namespace, 'line');
+
+    // line attributes
+    horizontalLines[i].setAttribute('stroke', '#888');
+    horizontalLines[i].setAttribute('stroke-width', '0.05em');
+    horizontalLines[i].setAttribute('class', 'horizontalLines');
+
+    // position
+    horizontalLines[i].setAttribute('x1', pos);
+    horizontalLines[i].setAttribute('x2', pos);
+    horizontalLines[i].setAttribute('y1', 0);
+    horizontalLines[i].setAttribute('y2', svg_height);
+    
+    // appends
+    svg_graph.appendChild(horizontalLines[i]);
+  }
+}
+
+function setVerticalLines(){
+  VerticalLines = [];
+  
+  for(i=0; i<c_v; i++){
+     // creates new line
+    VerticalLines[i] = document.createElementNS(svg_namespace, 'line');
+
+    // line attributes
+    VerticalLines[i].setAttribute('stroke', '#800');
+    VerticalLines[i].setAttribute('stroke-width', '0.05em');
+    VerticalLines[i].setAttribute('class', 'horizontalLines');
+
+    // appends
+    svg_graph.appendChild(VerticalLines[i]);
+  }
+}
+
+function referenceLines(){
+  // opens auxiliary functions
+  if(document.getElementById('horizontalLine').checked){
+    // auxiliary controls
+    k_h = document.getElementById('xSpace').value;
+    c_h = parseInt(lateral_amplitude / k_h);
+    spacing_h = svg_width / (c_h);
+
+    // defines offsetX step
+    document.getElementById('oX').step = spacing_h;
+    document.getElementById('oX_manual').step = spacing_h;
+    
+    // function
+    drawHorizontalLines();
+  }
+  
+  if(document.getElementById('verticalLine').checked){
+    // auxiliary controls
+    k_v = document.getElementById('ySpace').value;
+    c_v = parseInt(amplitude / k_v);
+    spacing_v = svg_height / (c_v);
+
+    // defines offsetX step
+    document.getElementById('oY').step = spacing_v;
+    document.getElementById('oY_manual').step = spacing_v;
+    
+    // function
+    drawVerticalLines();
+  }
+  
+  
+}

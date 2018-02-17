@@ -85,7 +85,8 @@ function set_general_variables(){
   lineX = lineY = line_offset_x = line_offset_y = 
   amplitude = lateralAmplitude =
   max_x_value = min_x_value = 
-  max_y_value = min_y_value = -1;
+  max_y_value = min_y_value = 
+  verticalLines = horizontalLines =-1;
 }
 
 function set_svg(){

@@ -77,6 +77,9 @@ function refresh_graph(){
   
   // show connection lines
   connectPoints();
+  
+  // reference lines
+  referenceLines();
 }
 
 function show_point_data(point){
