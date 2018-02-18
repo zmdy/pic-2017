@@ -80,6 +80,9 @@ function refresh_graph(){
   
   // reference lines
   referenceLines();
+  
+  // labels
+  setLabels();
 }
 
 function show_point_data(point){
