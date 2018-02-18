@@ -53,18 +53,18 @@ function reset_offset_lines(){
   lineY = parseFloat(svg_height - offset_y).toPrecision(5);
 
   // configures line_offset_x
-  line_offset_x.setAttribute('stroke', '#88d');
+  line_offset_x.setAttribute('stroke', '#111');
   line_offset_x.setAttribute('stroke-width', '0.12em');
   line_offset_x.setAttribute('x1', lineX);
   line_offset_x.setAttribute('x2', lineX);
-  line_offset_x.setAttribute('y1', 0);
+  line_offset_x.setAttribute('y1', svg_height * 0.035);
   line_offset_x.setAttribute('y2', svg_height);
 
   // configures line_offset_y
-  line_offset_y.setAttribute('stroke', '#88d');
+  line_offset_y.setAttribute('stroke', '#111');
   line_offset_y.setAttribute('stroke-width', '0.12em');
   line_offset_y.setAttribute('x1', 0);
-  line_offset_y.setAttribute('x2', svg_width);
+  line_offset_y.setAttribute('x2', svg_width*0.97);
   line_offset_y.setAttribute('y1', lineY);
   line_offset_y.setAttribute('y2', lineY);
 }
@@ -419,4 +419,44 @@ function referenceLines(){
     // function
     drawVerticalLines();
   }
+}
+
+function setLabels(){
+  // calls axis labels
+  xAxisLabel();
+  yAxisLabel();
+}
+
+function xAxisLabel(){
+  // if xLabel does not exists
+  if(xLabel == -1){
+    // creates
+    xLabel = document.createElementNS(svg_namespace, 'text');
+    
+    // appends
+    svg_graph.appendChild(xLabel);
+  }
+  
+  // configures
+  xLabel.setAttribute('x', lineX - 2);
+  xLabel.setAttribute('y', lineY * 0.03);
+  xLabel.setAttribute('class', 'axisLabel');
+  xLabel.innerHTML = document.getElementById('label_x').value;
+}
+
+function yAxisLabel(){
+  // if xLabel does not exists
+  if(yLabel == -1){
+    // creates
+    yLabel = document.createElementNS(svg_namespace, 'text');
+    
+    // appends
+    svg_graph.appendChild(yLabel);
+  }
+  
+  // configures
+  yLabel.setAttribute('x', svg_width * 0.97);
+  yLabel.setAttribute('y', lineY * 1.005);
+  yLabel.setAttribute('class', 'axisLabel');
+  yLabel.innerHTML = document.getElementById('label_y').value;
 }
