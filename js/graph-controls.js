@@ -300,10 +300,70 @@ function drawHorizontalLines(){
   }
 }
 
-
-function setReferenceLines(array, start, end, className){
-  console.log(array.length);
+function drawVerticalLines(){
+  // get horizontal lines array
+  verticalLines = document.getElementsByClassName('verticalLines');
   
+  // number of lines
+  v_lines = verticalLines.length;
+  ref_v_lines = v_lines - c_v;
+  
+  // reference counter
+  ref_counter = ref_v_lines < 0 ? v_lines + 1 : v_lines;
+  
+  // update positions
+  for(i=0; i<ref_counter; i++){
+    // if the current position is a point
+    if(i < v_lines){
+      // calculates new position
+      pos = ((i+1) * spacing_v).toPrecision(5);
+      
+      if(parseFloat(pos) > 0){ // if position is NOT too high
+        verticalLines[i].setAttribute('x1', 0);
+        verticalLines[i].setAttribute('x2', svg_width);
+        verticalLines[i].setAttribute('y1', pos);
+        verticalLines[i].setAttribute('y2', pos);
+      } else{
+        // stack of remotion (LIFO)
+        for(j=v_lines-1; j>=i; j--){
+          // remove all childs from here
+          verticalLines[j].parentNode.removeChild(verticalLines[j]);
+        }
+        
+        // stops execution going to i = h_lines
+        i = v_lines;
+        
+        // get new h_lines
+        v_lines = verticalLines.length;
+      }
+      
+    } else{
+      // cretes the reference lines
+      setReferenceLines(verticalLines,
+                        v_lines - 1,
+                        c_v,
+                        'verticalLines');
+                        
+      // set the positions
+      for(j= v_lines - 1; j < c_v; j++){
+        // calculates new position
+        pos = ((j+1) * spacing_v).toPrecision(5);
+        
+        // cahnges position
+        verticalLines[j].setAttribute('x1', 0);
+        verticalLines[j].setAttribute('x2', svg_width);
+        verticalLines[j].setAttribute('y1', pos);
+        verticalLines[j].setAttribute('y2', pos);
+      }
+    }
+  }
+  
+  // 'bug'
+  document.getElementById('verticalLine').checked = false;
+  document.getElementById('verticalLine').checked = true  ;
+}
+
+function setReferenceLines(array, start, end, className){ 
   for(i=start; i<end; i++){
     // creates new line
     array[i] = document.createElementNS(svg_namespace, 'line');
@@ -338,5 +398,25 @@ function referenceLines(){
     
     // function
     drawHorizontalLines();
+  }
+  
+  if(document.getElementById('verticalLine').checked){
+    // auxiliary controls
+    k_v = document.getElementById('ySpace').value;
+    c_v = parseInt(amplitude / k_v);
+    spacing_v = svg_height / (c_v);
+
+    // defines offsetX step
+    document.getElementById('oY').step = spacing_v;
+    document.getElementById('oY_manual').step = spacing_v;
+    
+    // set horizontal lines
+    if(verticalLines == -1){
+      verticalLines = [];
+      setReferenceLines(verticalLines, 0, c_v, 'verticalLines');
+    }
+    
+    // function
+    drawVerticalLines();
   }
 }
