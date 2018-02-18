@@ -86,7 +86,9 @@ function set_general_variables(){
   amplitude = lateralAmplitude =
   max_x_value = min_x_value = 
   max_y_value = min_y_value = 
-  verticalLines = horizontalLines =-1;
+  verticalLines = horizontalLines = 
+  xLabel = yLabel = 
+  axisGroup = -1;
 }
 
 function set_svg(){
