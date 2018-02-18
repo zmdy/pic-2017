@@ -260,10 +260,18 @@ function drawHorizontalLines(){
       pos = ((i+1) * spacing_h).toPrecision(5);
       
       if(parseFloat(pos) <= svg_width){ // if position is NOT too high
-        horizontalLines[i].setAttribute('x1', pos);
-        horizontalLines[i].setAttribute('x2', pos);
-        horizontalLines[i].setAttribute('y1', 0);
-        horizontalLines[i].setAttribute('y2', svg_width);
+        if(parseFloat(pos) > lineX){
+            horizontalLines[i].setAttribute('x1', pos);
+            horizontalLines[i].setAttribute('x2', pos);
+            horizontalLines[i].setAttribute('y1', lineY * 0.03);
+            horizontalLines[i].setAttribute('y2', lineY);
+          } else{
+            // remove this line
+            horizontalLines[i].parentNode.removeChild(horizontalLines[i]);
+
+            // get new h_lines
+            h_lines = horizontalLines.length;
+          }
       } else{
         // stack of remotion (LIFO)
         for(j=h_lines-1; j>=i; j--){
@@ -293,8 +301,8 @@ function drawHorizontalLines(){
         // changes position
         horizontalLines[j].setAttribute('x1', pos);
         horizontalLines[j].setAttribute('x2', pos);
-        horizontalLines[j].setAttribute('y1', 0);
-        horizontalLines[j].setAttribute('y2', svg_width);
+        horizontalLines[j].setAttribute('y1', lineY * 0.03);
+        horizontalLines[j].setAttribute('y2', lineY);
       }
     }
   }
@@ -318,11 +326,13 @@ function drawVerticalLines(){
       // calculates new position
       pos = ((i+1) * spacing_v).toPrecision(5);
       
-      if(parseFloat(pos) > 0){ // if position is NOT too high
-        verticalLines[i].setAttribute('x1', 0);
-        verticalLines[i].setAttribute('x2', svg_width);
-        verticalLines[i].setAttribute('y1', pos);
-        verticalLines[i].setAttribute('y2', pos);
+      console.log(pos + '--' +lineY);
+      
+      if(parseFloat(pos) < lineY){ // if position is NOT too high
+          verticalLines[i].setAttribute('x1', lineX);
+          verticalLines[i].setAttribute('x2', svg_width);
+          verticalLines[i].setAttribute('y1', pos);
+          verticalLines[i].setAttribute('y2', pos);
       } else{
         // stack of remotion (LIFO)
         for(j=v_lines-1; j>=i; j--){
@@ -350,7 +360,7 @@ function drawVerticalLines(){
         pos = ((j+1) * spacing_v).toPrecision(5);
         
         // cahnges position
-        verticalLines[j].setAttribute('x1', 0);
+        verticalLines[j].setAttribute('x1', lineX);
         verticalLines[j].setAttribute('x2', svg_width);
         verticalLines[j].setAttribute('y1', pos);
         verticalLines[j].setAttribute('y2', pos);
@@ -444,7 +454,7 @@ function xAxisLabel(){
   
   // configures
   xLabel.setAttribute('x', lineX - 2);
-  xLabel.setAttribute('y', lineY * 0.03);
+  xLabel.setAttribute('y', lineY * 0.02);
   xLabel.setAttribute('class', 'axisLabel');
   xLabel.innerHTML = document.getElementById('label_x').value;
 }
