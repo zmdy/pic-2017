@@ -54,6 +54,12 @@
             <label for='noConnection' class='connection'>No-connection  <input type='radio' id='noConnection' name='connectionLine' checked onclick='connectPoints()'/></label>
             <label for='linearConnection' class='connection'>Linear connection <input type='radio' id='linearConnection' name='connectionLine' onclick='connectPoints()'/></label>
             <label for='bezierConnection' class='connection'>Bézier connection  <input type='radio' id='bezierConnection' name='connectionLine' onclick='connectPoints()'/></label
+            
+            <p>labelX <input type='text' id='label_x' value='xAxis' onchange='xAxisLabel()'/></p>
+            <p>labelY <input type='text' id='label_y' value='yAxis' onchange='refresh_graph()'/></p>
+            
+            <label for='hLabels'>Show Horizontal Labels <input type='checkbox' id='hLabels' onchange='refresh_graph()'/></label>
+            <label for='vLabels'>Show Horizontal Labels <input type='checkbox' id='vLabels' onchange='refresh_graph()'/></label>
           </fieldset>
           
           
