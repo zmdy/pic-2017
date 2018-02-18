@@ -87,7 +87,9 @@ function set_general_variables(){
   max_x_value = min_x_value = 
   max_y_value = min_y_value = 
   verticalLines = horizontalLines = 
+  c_h = c_v =
   xLabel = yLabel = 
+  hLabel = vLabel =
   axisGroup = -1;
 }
 
