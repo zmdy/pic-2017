@@ -425,6 +425,11 @@ function setLabels(){
   // calls axis labels
   xAxisLabel();
   yAxisLabel();
+  
+  // reference labels
+  if(hLabels.checked && c_h != -1){
+    horizontalLabels();
+  }
 }
 
 function xAxisLabel(){
@@ -459,4 +464,50 @@ function yAxisLabel(){
   yLabel.setAttribute('y', lineY * 1.005);
   yLabel.setAttribute('class', 'axisLabel');
   yLabel.innerHTML = document.getElementById('label_y').value;
+}
+
+function horizontalLabels(){
+  // clear previous values
+  if(hLabel != -1){
+    for(i=0; i<c_h.lenght; i++){
+      // configures
+      px = horizontalLines[i].x1.baseVal.value.toPrecision(5);
+      py = lineY.toPrecision(5) * 0.95;
+      
+      hLabel[i].setAttribute('x', px);
+      hLabel[i].setAttribute('y', py);
+      rot = 'rotate(90 ' +
+              px + ',' +
+              py + 
+            ')';
+      hLabel[i].setAttribute('transform', rot);
+      hLabel[i].innerHTML = (i+1) * k_h;
+    }
+  } else{
+    // defines label as array
+    hLabel = [];
+  
+    for(i=0; i<c_h; i++){
+      // creates
+      hLabel[i] =  document.createElementNS(svg_namespace, 'text');
+
+      // configures
+      px = horizontalLines[i].x1.baseVal.value.toPrecision(5);
+      py = lineY.toPrecision(5) * 0.95;
+      
+      hLabel[i].setAttribute('x', px);
+      hLabel[i].setAttribute('y', py);
+      rot = 'rotate(90 ' +
+              px + ',' +
+              py + 
+            ')';
+      hLabel[i].setAttribute('transform', rot);
+      hLabel[i].innerHTML = (i+1) * k_h;
+
+      // appends
+      svg_graph.appendChild(hLabel[i]);
+    }
+  }
+  
+  
 }
