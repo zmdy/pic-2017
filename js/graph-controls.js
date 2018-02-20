@@ -326,8 +326,6 @@ function drawVerticalLines(){
       // calculates new position
       pos = ((i+1) * spacing_v).toPrecision(5);
       
-      console.log(pos + '--' +lineY);
-      
       if(parseFloat(pos) < lineY){ // if position is NOT too high
           verticalLines[i].setAttribute('x1', lineX);
           verticalLines[i].setAttribute('x2', svg_width);
@@ -440,6 +438,10 @@ function setLabels(){
   if(hLabels.checked && c_h != -1){
     horizontalLabels();
   }
+  
+  if(vLabels.checked && c_v != -1){
+    verticalLabels();
+  }
 }
 
 function xAxisLabel(){
@@ -477,12 +479,16 @@ function yAxisLabel(){
 }
 
 function horizontalLabels(){
-  // clear previous values
+  // defines
+  //lineX = parseFloat(offset_x).toPrecision(5);
+  lineY = parseFloat(svg_height - offset_y).toPrecision(5);
+  
+  // change previous values
   if(hLabel != -1){
     for(i=0; i<c_h.lenght; i++){
       // configures
       px = horizontalLines[i].x1.baseVal.value.toPrecision(5);
-      py = lineY.toPrecision(5) * 0.95;
+      py = lineY * 0.95;
       
       hLabel[i].setAttribute('x', px);
       hLabel[i].setAttribute('y', py);
@@ -503,7 +509,7 @@ function horizontalLabels(){
 
       // configures
       px = horizontalLines[i].x1.baseVal.value.toPrecision(5);
-      py = lineY.toPrecision(5) * 0.95;
+      py = lineY * 0.95;
       
       hLabel[i].setAttribute('x', px);
       hLabel[i].setAttribute('y', py);
@@ -516,6 +522,45 @@ function horizontalLabels(){
 
       // appends
       svg_graph.appendChild(hLabel[i]);
+    }
+  }
+}
+
+
+function verticalLabels(){
+  // defines
+  lineX = parseFloat(offset_x).toPrecision(5);
+  //lineY = parseFloat(svg_height - offset_y).toPrecision(5);
+  
+  // change previous values
+  if(vLabel != -1){
+    for(i=0; i<c_v; i++){
+      // configures
+      px = 0;
+      py = verticalLines[i].y1.baseVal.value.toPrecision(5);
+      
+      vLabel[i].setAttribute('x', px);
+      vLabel[i].setAttribute('y', py);
+      vLabel[i].innerHTML = (c_v-(i+1)) * k_v;
+    }
+  } else{
+    // defines label as array
+    vLabel = [];
+  
+    for(i=0; i<c_v; i++){
+      // creates
+      vLabel[i] =  document.createElementNS(svg_namespace, 'text');
+      
+      // configures
+      px = 0;
+      py = verticalLines[i].y1.baseVal.value.toPrecision(5);
+      
+      vLabel[i].setAttribute('x', px);
+      vLabel[i].setAttribute('y', py);
+      vLabel[i].innerHTML = (c_v-(i+1)) * k_v;
+
+      // appends
+      svg_graph.appendChild(vLabel[i]);
     }
   }
   
