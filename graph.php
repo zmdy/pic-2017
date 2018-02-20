@@ -58,8 +58,8 @@
             <p>labelX <input type='text' id='label_x' value='xAxis' onchange='xAxisLabel()'/></p>
             <p>labelY <input type='text' id='label_y' value='yAxis' onchange='refresh_graph()'/></p>
             
-            <label for='hLabels'>Show Horizontal Labels <input type='checkbox' id='hLabels' onchange='refresh_graph()'/></label>
-            <label for='vLabels'>Show Horizontal Labels <input type='checkbox' id='vLabels' onchange='refresh_graph()'/></label>
+            <label for='hLabels'>Show Horizontal Labels <input type='checkbox' id='hLabels' onchange='setLabels()'/></label>
+            <label for='vLabels'>Show Vertical Labels <input type='checkbox' id='vLabels' onchange='setLabels()'/></label>
           </fieldset>
           
           
