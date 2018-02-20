@@ -54,6 +54,9 @@ function start_graph(){
   
   // set svg
   set_svg();
+  
+  // statistics
+  statisticsProcess();
 }
 
 function refresh_graph(){  
