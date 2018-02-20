@@ -3,7 +3,7 @@ Scientific Begining Project developed in 2016/2018
 
 * Distributed under GPL v3.0
 
-## -------------------- PINGUINO REPORT --------------------
+##  PINGUINO REPORT
 
 * Project Type: 1 - Programmig
 * Encrypt: Standard
