@@ -9,9 +9,11 @@
     <script src='js/utils.js'></script>
     <script src='js/graph.js'></script>
     <script src='js/colors.js'></script>
+    <script src='js/statistics.js'></script>
     <script src='js/graph-controls.js'></script>
     <script src='js/graph-process.js'></script>
     <script src='js/class/SVGData.js'></script>
+    <script src='js/class/Statistics.js'></script>
     
     <link rel='stylesheet' href='css/style.css' type='text/css'/>
     <link rel='stylesheet' href='css/styleGraph.css' type='text/css'/>
@@ -47,24 +49,27 @@
             <p>Offset Y: <input type='number' id='oY_manual' value=0 onchange='refresh_graph()'/></p>
           </fieldset>
           
+          <fieldset id='dataStat'>
+            <legend>Statistics</legend>
+            <p id='statReport'></p>
+            <p id='graphStatus'></p>
+          </fieldset>
+          
           <fieldset id='pointsControl'>
             <legend>Point Controls</legend>
             <p>point_size: <input type='number' id='point_size' value=5 onchange='set_data_svg()'/></p>
           
             <label for='noConnection' class='connection'>No-connection  <input type='radio' id='noConnection' name='connectionLine' checked onclick='connectPoints()'/></label>
             <label for='linearConnection' class='connection'>Linear connection <input type='radio' id='linearConnection' name='connectionLine' onclick='connectPoints()'/></label>
-            <label for='bezierConnection' class='connection'>Bézier connection  <input type='radio' id='bezierConnection' name='connectionLine' onclick='connectPoints()'/></label
+            <!--<label for='bezierConnection' class='connection'>Bézier connection  <input type='radio' id='bezierConnection' name='connectionLine' onclick='connectPoints()'/></label -->
             
             <p>labelX <input type='text' id='label_x' value='xAxis' onchange='xAxisLabel()'/></p>
             <p>labelY <input type='text' id='label_y' value='yAxis' onchange='refresh_graph()'/></p>
             
             <label for='hLabels'>Show Horizontal Labels <input type='checkbox' id='hLabels' onchange='setLabels()'/></label>
             <label for='vLabels'>Show Vertical Labels <input type='checkbox' id='vLabels' onchange='setLabels()'/></label>
-          </fieldset>
-          
-          
+          </fieldset>          
         </form>
-        <p id='graphStatus'></p>
     </div>
     
     <?php
