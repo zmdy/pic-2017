@@ -1,0 +1,42 @@
+.connection{
+  display: block;
+}
+
+#graphControls, #pointsControl,
+#graphPersonalControls, #dataStat{
+  width: 84%;
+  margin: 1% 0 0.5% 7.5%;
+  padding: 0.5%;
+  display: inline-block;
+  overflow: hidden;
+}
+
+#graphStatus{
+  padding: 1%;
+  word-break: break-all;
+}
+
+#oX_value, #oY_value{
+  border: none;
+  padding: 0.5%;
+}
+
+#graphControls, #graphPersonalControls{
+  display: inline-block;
+  margin-right: 0;
+  width: 41%;
+}
+
+#graphPersonalControls{
+  float: right;
+  margin: 0.5% 7.5% 0 0;
+}
+
+legend{
+  cursor: default;
+}
+
+.pointProperty{
+  background: none;
+  border: none;
+}
