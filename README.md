@@ -1,11 +1,10 @@
-# pic-2017
+# pic-2017 (Arduino Signals)
 Scientific Begining Project developed in 2016/2018
 
 * Distributed under GPL v3.0
+* Current Version: 1.1
+** Version: 1.1 (ABR-2018)
+** Version: 1.0 (DEC-2017)
 
-##  PINGUINO REPORT
-
-* Project Type: 1 - Programmig
-* Encrypt: Standard
-* ID: rp3joawrzxcb9f
-* REF: 4.724.632.994.647.197.851.907
+# Arduino Signals
+* Project developed to create real-time electrical signal graphics from Arduino
